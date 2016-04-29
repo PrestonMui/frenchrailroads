@@ -1,0 +1,111 @@
+\documentclass[12pt,twoside]{article}
+\usepackage{problemset}
+\usepackage{hanging}
+\runningheads{Preston Mui}{Econ-210a: How much did Railroads Affect Market Integration? Evidence from 19th Century France}
+
+\begin{document}
+
+\begin{centering}
+\textbf{How much did Railroads Affect Market Integration? Evidence from 19th Century France}
+\end{centering}
+
+\section{Motivation}
+
+As was the case in other countries, the 19th century saw a dramatic change in French railroad infrastructure.
+Prior to the introduction of trains, grain transportation in was expensive, risky, and slow.
+Shipping grain by water was not only long and expensive but risky as well, since river water or accidents could damage the grain.
+The first railroad was built in 1827, and the network gradually expanded throughout France during the 19th century.
+The travel time between Paris and Marseille was reduced by tenfold from five days to half a day between 1814 and 1857 (Th\'{e}venin, et. al 2013).
+By 1861, rail transportation accounted for at least two-thirds of cereal consumption, not to mention the improved ability to transport perishables and meat from further away (Price, 1981)
+
+Previous literature in economic history has addressed the impact of railroads during the Industrial Revolution.
+Price (1981) argues that railways had a profound impact in transforming the French economy, especially the agricultural sector, by reducing agricultural prices and widening markets.
+Persson (1999) uses monthly grain prices from London and thirteen French markets to demonstrate that price volatility and dispersion decreased dramatically between the 16th and 19th centuries, attributing this decline to falls in trade and information costs.
+However, Ville (1990) notes that the effects of railroads are overstated, since improvements in agricultural technology and road transport are likely to confound the identification of the effects of railroads.
+This disagreement over the magnitude of the effect of railroads is not limited to the French context.
+For example, Donaldson (2015) argues that the traditional ``social savings'' methodology understates the value of expanded market access from railroads in 19th century America.
+
+I hope to shed light on this issue by using historical data to properly identify the impact of railroads on price integration in French grain markets.
+
+\section{Data}
+
+In order to answer this question, I need two main pieces of data.
+The first is historical data on French train routes and transport costs during the 19th century.
+Ideally, I would use data from Th\'{e}venin, et. al (2013), who have digitized historical railroad routes from the French National Railway Company (SNCF), combined this data with information on secondary rail lines, and estimated travel times between French \emph{communes} using historical timetables and train speeds.
+I am in the process of contacting the authors to see if this data is available.
+If the data is not available, the historical maps from the SNCF are aviailable through the SNCF archives (and I have found images of these maps online).
+
+The second is historical wheat price and quantity data, which local officials have historically collected across France for centuries.
+The biweekly data for fifty-three markets across France between 1823 and 1913--precisely the period when French railroads were introduced and expanded--were digitized from the French National Archives by Drame, et. al (1991) and are freely available through the Interuniversity Consortium for Political and Social Research at the University of Michigan.
+There is a clear disadvantage to using this price data, since only data for wheat is available.
+However, this dataset has some distinct advantages.
+First, wheat is both long-lived and a commodity, so wheat sold in Saint-Lo (which is in the Northwest by the English Channel) could, in principle, be sold as the same wheat in Marseille in the Southeast.
+Second, unlike the data used in Persson (1999), the level of disaggregation allows me to take advantage of data from a large number of large markets, including smaller markets which may not have been served as well by railroads in the early 19th century.
+Finally, the biweekly nature of the data allows me to address price volatility as well as price levels.
+
+% Allows me to identify effect of railroads specifically...
+
+\section{Outline of Proposed Methodology}
+A modified version of the law of one price is that the equilibrium price of commodities, adjusting for transportation costs, should be the same everywhere.
+A common method for testing this price cointegration is to use Vector Error Correction Models (VECMs).
+As in Persson (1999), I propose estimating the following model.
+Consider the prices of grain at markets $i$ and $j$ at time $t$, which have some long-term equilibrium relationship:
+\begin{align}\label{eq:equilibrium}
+	0 &= \beta_{i} p_{i,t} + \beta_{j} p_{j,t} + C
+\end{align}
+With an adjustment equation
+\begin{align}\label{eq:adjustment}
+	p_{i,t} &= \alpha_i (\beta_{i} p_{i,t} + \beta_{j} p_{j,t} + C) + y_{i,t-1} \\
+	p_{j,t} &= \alpha_j (\beta_{i} p_{i,t} + \beta_{j} p_{j,t} + C) + y_{j,t-1}
+\end{align}
+The interpretation of these equations is as follows: When the market is out of equilibrium; that is, when the right-hand side of \eqref{eq:equilibrium} is non-zero, the prices $p_i$ and $p_j$ adjust according to $\alpha_i$ and $\alpha_j$.
+Taking this model to the data requires two steps.
+The first is two test for cointegration of prices between markets; that is, test the null hypothesis that $\beta_i = \beta_j = 1$ (Froot, et. al (1995) suggest to test that the series $p_{i,t} - p_{j,t}$ is stationary).
+For a given pair of markets, if the hypothesis is not rejected, the second step is to obtain estimates of $\alpha_i$ and $\alpha_j$.
+The $\alpha$ parameters demonstrate the speed of convergence back to the equilibrium between the two markets; $C$ is the equilibrium price wedge between the two markets.
+
+I propose to split the sample into several time periods and estimate the above model for each pair of markets during each time period.
+The biweekly frequency of the data allow me to use short time periods, but still have enough observations for identification.
+Then, using the railway data, I propose regressing the estimated convergence rates $\alpha$ and the price wedges $C$ on estimated train travel time between the two markets to identify the impact of railroads on price integration.
+My hypothesis is that I will find that railroad access significantly increases the probability of price cointegration, lowers the equilibrium price wedge, and increases the speed of convergence to equilibrium.
+However, I also suspect that markets without railroad access will also see small, but appreciable, increases in market integration due to other improved transportation infrastructure (such as roads and canals) during this time.
+
+\section{Other extensions}
+
+There are two other extensions I am thinking of, but have not thought through fully.
+Trade integration can affect not only first moments of prices but second moments as well.
+On one hand, exposure to external markets can provide insurance against local shocks; supply shocks in one region can be offset by imports from other regions.
+However, this risk-pooling can go both ways, as trade integration can transmit those same shocks between regions.
+Therefore, \emph{a priori}, it is unclear if trade integration will necessarily reduce price volatility in a given region.
+Because my data is biweekly, I may be able to say something about the impact of trade integration on the second moments of prices.
+
+Another idea is to look at the transmission of price shocks across time and space using natural experiments.
+Specifically, during this period, British grain prices experienced volatility due to Irish famine and various military conflicts.
+The \emph{London Gazette} collected weekly grain prices in various markets in England during this time period as well; if I can identify plausibly exogenous shocks to British wheat prices, which are more likely to directly affect prices in French port cities than inland cities, I may be able to identify exogenous price shocks to certain cities.
+Using the model above, I can analyze how trade integration affected the transmission of these shocks throughout France.
+
+\section{References}
+\begin{footnotesize}
+	
+\begin{hangparas}{0.25in}{1}
+
+	Donaldson, Dave, and Richard Hornbeck (2015) ``Railroads and American Economic Growth: A ``Market Access'' Approach''. NBER Working Paper.
+
+	Froot, Kenneth, Michael Kim, and Kenneth Rogoff (1995). ``The Law of One Price over 700 Years.'' IMF Working Paper.
+
+	Steve Laurence Kaplan (1984). ``Provisioning Paris.'' Ithaca: Cornell University Press.
+
+	Drame, Sylvie, et al (1991). ``Un Siecle De Commerce Du Ble En France: 1825-1913: Les Fluctuations Du Champ Des Prix.'' Paris: Economica.
+
+	Kar Persson (1999). ``Grain Markets in Europe, 1500--1900.'' Cambridge: Cambridge University Press.
+
+	Roger Price (1981). ``An Economic History of Modern France.'' London: Macmillan.
+
+	Bertrand Roehner. ``Wheat Trade and Wheat Prices in France, 1486-1913.'' ICPSR09777-v1. Ann Arbor, MI: Inter-university Consortium for Political and Social Research, 2016-02-19. http://doi.org/10.3886/ICPSR09777.v1
+
+	Simon P. Ville (1990). ``Transport and the Development of the European Economy, 1750--1918.'' New York: St. Martin's Press.
+
+% https://www.imf.org/external/pubs/ft/wp/2001/wp01174.pdf
+\end{hangparas}
+\end{footnotesize}
+\end{document}

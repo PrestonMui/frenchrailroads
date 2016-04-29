@@ -1,0 +1,50 @@
+File Manifest for ICPSR 9777
+
+Roehner, Bertrand. Wheat Trade and Wheat Prices in France, 1486-1913.
+ICPSR09777-v1. Ann Arbor, MI: Inter-university Consortium for Political and
+Social Research [distributor], 2016-02-19.
+http://doi.org/10.3886/ICPSR09777.v1
+
+Details on the version history can be found below the file listings.
+
+
+Study-level Documentation
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    09777-related_literature.txt        -       -         -       2016-04-10  -
+
+    09777-manifest.txt                  -       -         -       2016-04-11  -
+
+    09777-Codebook.txt                  -       -         -       1997-06-03  0279481a2d6a56b8e2129bf1004f5330
+
+
+DS0001 Quantities of Wheat Sold on Specific Markets in France, 1825-1885
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    09777-0001-Data.txt                 75      771       inap.   1995-08-11  311ecae04ae9a425b22c45f23958660c
+
+
+DS0002 Wheat Prices in France, 1825-1913
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    09777-0002-Data.txt                 75      9,062     inap.   1995-08-11  2872a84e2e60facb49848cdb0552999c
+
+
+DS0003 Monthly Market Wheat Prices in Toulouse, 1486-1913
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    09777-0003-Data.txt                 75      456       inap.   1995-08-11  d268272458d947f6c2f625eaafcf828c
+
+
+Version History
+
+2006-01-12 All files were removed from dataset 4 and flagged as study-level
+files, so that they will accompany all downloads.

@@ -1,0 +1,16 @@
+Bibliography
+Wheat Trade and Wheat Prices in France, 1486-1913
+
+This bibliography includes published and unpublished works that are related 
+to ICPSR study 9777. It includes works that are based on primary
+or secondary analysis of the data, or which describe or critique those
+data or the collection methodology. This list represents all items known
+to ICPSR as of 2016-04-11.
+
+If you publish a work or know of other works that are based on these data,
+please send the complete citation and name of the ICPSR study used to:
+bibliography@icpsr.umich.edu.
+
+
+1. Drame, Sylvie; et al, Un Siecle De Commerce Du Ble En France: 1825-1913:
+Les Fluctuations Du Champ Des Prix. Paris: Economica, 1991.

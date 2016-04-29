@@ -1,0 +1,520 @@
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                WHEAT TRADE AND WHEAT PRICES IN FRANCE, 1486-1913               
+                                                                                
+                                  (ICPSR 9777)                                  
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                             Principal Investigator                             
+                                                                                
+                                Bertrand Roehner                                
+                               University of Paris                              
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                               First ICPSR Release                              
+                                  December 1992                                 
+                                                                                
+                                                                                
+                                                                                
+                         Inter-university Consortium for                        
+                          Political and Social Research                         
+                                  P.O. Box 1248                                 
+                            Ann Arbor, Michigan 48106                           
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                             BIBLIOGRAPHIC CITATION                             
+                                                                                
+                                                                                
+            Publications  based  on  ICPSR  data  collections  should           
+            acknowledge  those  sources  by  means  of  bibliographic           
+            citations.  To ensure that such source  attributions  are           
+            captured  for  social  science  bibliographic  utilities,           
+            citations must appear in footnotes or  in  the  reference           
+            section  of publications.  The bibliographic citation for           
+            this data collection is:                                            
+                                                                                
+                                                                                
+                 Roehner, Bertrand. WHEAT TRADE AND WHEAT PRICES                
+                 IN  FRANCE,  1486-1913  [Computer file]. Paris,                
+                 France: Bertrand Roehner [producer], 1992.  Ann                
+                 Arbor,   MI:  Inter-university  Consortium  for                
+                 Political and  Social  Research  [distributor],                
+                 1992.                                                          
+                                                                                
+                                                                                
+                                                                                
+                REQUEST FOR INFORMATION ON USE OF ICPSR RESOURCES               
+                                                                                
+            To provide funding agencies  with  essential  information           
+            about  use  of  archival  resources and to facilitate the           
+            exchange  of  information   about   ICPSR   participants'           
+            research activities, users of ICPSR data are requested to           
+            send to ICPSR bibliographic citations for each  completed           
+            manuscript or thesis abstract. Please indicate in a cover           
+            letter which data were used.                                        
+                                                                                
+                                                                                
+                                                                                
+                                 DATA DISCLAIMER                                
+                                                                                
+            The original  collector  of  the  data,  ICPSR,  and  the           
+            relevant  funding  agency bear no responsibility for uses           
+            of this collection or for interpretations  or  inferences           
+            based upon such uses.                                               
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                           DATA COLLECTION DESCRIPTION                          
+                                                                                
+                                                                                
+        Bertrand Roehner                                                        
+             WHEAT TRADE AND WHEAT PRICES IN FRANCE, 1486-1913                  
+        (ICPSR 9777)                                                            
+                                                                                
+        SUMMARY: This collection presents  a  historical  survey  of  the       
+        price  and  quantity of wheat produced in different localities in       
+        France. The purpose of the study was to examine price trends of a       
+        major  food  commodity within an important agricultural market in       
+        Western Europe and, in particular,  to  measure  the  correlation       
+        between  wheat price fluctuations and demographic fluctuations in       
+        France. Prices and quantities  of  wheat  were  recorded,  either       
+        fortnightly  or  monthly,  by local officials in the major wheat-       
+        growing areas and subsequently relayed to higher  levels  of  the       
+        French  government.  These  tables  of  information  were finally       
+        copied and  maintained  by  the  Ministry  of  Interior  and  the       
+        Ministry  of Commerce and Agriculture and ultimately deposited in       
+        the French National Archives.  CLASS IV                                 
+                                                                                
+        UNIVERSE: All wheat  markets  in  France  for  which  prices  and       
+        quantities sold were recorded by the French administration in the       
+        nineteenth century.                                                     
+                                                                                
+        SAMPLING: A representative sample of wheat markets covering every       
+        part  of  France,  with  the  exception  of Alsace-Lorraine, were       
+        chosen. After eliminating  those  with  imprecise  or  incomplete       
+        information,  53  markets  comprised the final list. The northern       
+        half of France is more heavily represented since wheat production       
+        is more extensive there than in the south. Usually one market per       
+        "departement" (administrative area), either that of  the  largest       
+        city  or  of  the  center with the largest quantity of sales, was       
+        chosen for inclusion in  the  collection.  In  addition,  several       
+        large ports, such as Cherbourg and Dieppe, and other cities, such       
+        as Chateaudun and Albi, were also included.                             
+                                                                                
+        NOTE: These data are stored in a machine-readable tabular  format       
+        with  blanks  used  to  separate  elements within the tables. The       
+        files containing these data also include instructions for reading       
+        the tables.                                                             
+                                                                                
+        EXTENT  OF  COLLECTION:   3   data   files   +   machine-readable       
+        documentation (text)                                                    
+                                                                                
+        EXTENT OF PROCESSING: NONNUM/ BLANKS                                    
+                                                                                
+        DATA FORMAT: Logical Record Length                                      
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+        Part 1: Quantities of Wheat         Part 2: Wheat Prices in France,     
+          Sold on Specific Markets            1825-1913                         
+          in France, 1825-1885              File Structure: rectangular         
+        File Structure: rectangular         Cases: 9,062                        
+        Cases: 771                          Record Length: 75                   
+        Record Length: 75                                                       
+                                                                                
+        Part 3: Monthly Market              Part 4: Codebook for                
+          Wheat Prices in                     All Parts                         
+          Toulouse, 1486-1913               Record Length: 80                   
+        File Structure: rectangular                                             
+        Cases: 456                                                              
+        Record Length: 75                                                       
+                                                                                
+        RELATED PUBLICATION:                                                    
+             Drame, Sylvie, et al.  UN  SIECLE  DE  COMMERCE  DU  BLE  EN       
+        FRANCE: 1825-1913. Paris: Economica, 1991.                              
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+        PART 1: QUANTITIES OF WHEAT SOLD ON SPECIFIC MARKETS IN FRANCE:         
+                                    1825-1885                                   
+                                                                                
+                                                                                
+                                                                                
+         SOURCE: ARCHIVES NATIONALES (PARIS): F11* 1779-2678   F11* 2877-2984   
+                                                                                
+         Quantities are expressed in hectolitres                                
+                                                                                
+         0 means unavailable                                                    
+                                                                                
+         The two first columns contain the postal code of the area              
+                                                                                
+         The name of the town is given in abridged form when it happens to be   
+         too long to be given in full                                           
+                                                                                
+          MR1 means "March, first fortnight"     and so on ...                  
+                                                                                
+                                                                                
+                  THE DATA FILE BEGINS AS FOLLOWS:                              
+                                                                                
+          QUANTITIES   1825 1830 1835 1840 1845 1847 1847 1850                  
+                        MR1  JA1  MR1  JA1  MR2  JA1  MR1  OC1                  
+         01 BOURG      1920 0945 1481 1517 1954 0761 3145 1008                  
+         01 ST LAURENT 2280 0519 2250 1845 1887 1323 0762 0780                  
+         01 PT DE VAUX 0395 0394 0607 0291 0342 0273 1179 0435                  
+         01 GEX        0003 0015 0025 0025 0030 0021 0024 0018                  
+         01 COLLONGES  0119 0158 0000 0019 0021 0023 0019 0069                  
+         02 ST QUENTIN 0911 1529 0710 0347 0651 0964 1203 0384                  
+         02 VERVINS    0070 0072 0052 0018 0000 0000 0000 0000                  
+         02 LA CAPELLE 0900 0775 0300 0580 0549 0321 0334 0252                  
+         02 LA FERE    0310 0210 0030 0072 0115 0075 0154 0031                  
+         02 CHAUNY     0240 0255 0072 0066 0065 0008 0060 0030                  
+         02 SOISSONS   0023 2657 3026 3595 4530 2553 2110 2230                  
+                                                                                
+                                                                                
+        ----------------------------------------------------------------------  
+                                                                                
+                                                                                
+        PART 2:  WHEAT PRICES IN FRANCE: 1825-1913                              
+                                                                                
+                                                                                
+         SOURCE: ARCHIVES NATIONALES (PARIS): F11* 1779-2678   F11* 2877-2984   
+                                                                                
+         The prices were recorded every fortnight until may 1903 and thereafter 
+         every month.                                                           
+                                                                                
+         Prices are expressed in centimes/hectolitres                           
+                                                                                
+         0 means unavailable                                                    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                          2                                     
+                                                                                
+         Remark                                                                 
+                                                                                
+         Detailed explanations pertaining to the data and to the conditions     
+         of their collection may be found (in English) in the following         
+         accompanying book:                                                     
+                                                                                
+              DRAME (S.), GONFALONE (CH.), MILLER (J.A.), ROEHNER (B.)          
+              UN SIECLE DE COMMERCE DU BLE EN FRANCE: 1825-1913                 
+                       ECONOMICA, PARIS (1991)                                  
+                                                                                
+                                                                                
+          The heading at the left (for instance "aisne") is the name of the     
+          administrative area ("departement" in French); at its right           
+          (for instance "soissons") is the name of the town were the wheat      
+          market was located.                                                   
+                                                                                
+         The prices were recorded every fortnight until May 1903 and thereafter 
+         every month.                                                           
+                                                                                
+         Prices are arranged in following order:                                
+         * before May 1903                                                      
+                    JAN1: January 1-15, Jan2: January 15-31  and so on          
+                                                                                
+          AISNE             SOISSONS                                            
+               JAN1 JAN2 FEB1 FEB2 MAR1 MAR2 APR1 APR2 MAY1 MAY2 JUN1 JUN2      
+         1825  1275 1347 1307 1350 1347 1347 1340 1395 1353 1320 1400 1450      
+                                                                                
+               JUL1 JUL2 AUG1 AUG2 SEP1 SEP2 OCT1 OCT2 NOV1 NOV2 DEC1 DEC2      
+               1347 1407 1552 1555 1519 1525 1576 1558 1596 1690 1697 1696      
+                                                                                
+         * AFTER MAY 1903                                                       
+               JANU FEBR MARC APRI MAY  JUNE JULY AUGA SEPT OCTO NOVE DECE      
+         1904  1512 1573 1532 1508 1481 1380 1441 1633 1637 1751 1738 1749      
+                                                                                
+                                                                                
+        -------------------------------------------------------------------     
+                                                                                
+                                                                                
+        PART 3: MONTHLY MARKET WHEAT PRICES IN TOULOUSE: 1486-1913              
+                                                                                
+                                                                                
+           Toulouse is a city in the south of France.                           
+                                                                                
+           The prices are expressed in centimes/hectolitres                     
+                                                                                
+           The monetary and volume conversion factors are taken from:           
+                                                                                
+           Freche (G.) and Freche (G.): les prix des grains, des vins et des    
+           legumes a Toulouse 1486-1868, Paris 1967   (in French)               
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                           3                                    
+                                                                                
+           More detailed information about the sources as well as a chart of    
+           the whole series can be found in:                                    
+            Drame (S), Gonfalone (Ch), Miller (J.A.), Roehner (B)               
+           Un siecle de commerce du ble en France 1825-1913                     
+                   Economica , Paris 1991.                                      
+                                                                                
+           0 means unavailable                                                  
+                                                                                
+           Ja, Fe,  and so on are the headings for January, February, and so on 
+                                                                                
+           The data file begins as follows:                                     
+                                                                                
+                                                                                
+          TOULOUSE            WHEAT                                             
+                JA   FE   MR   AP   MA   JN   JL   AU   SE   OC   NO   DE       
+          1486   99  107  103  103  103  107   76   72   72   80   80   72      
+          1487   72   72   72   67   67   62   54   58   62   62   49   54      
+          1488   54   49   49   45   40   40   49   49   45   45   45   40      
+          1489   40   40   40   35   40   40   40   54   62   62   54   58      
+          1490   58   62   62   58   58   62   67   67   62   67   62   58      
+          1491   58   58   58   72   89   72   72   67   72   76   80   72      
+          1492   76   76   72   58   58   54   58   62   58   62   58   54      
+          1493   58   54   54   54   49   49   49   49   54   58   58   58      
+          1494   62   67   67   67   62   62   58   58   58   62   62   58      
+          1495   58   58   58   58   58   54   62   62   62   67   67   67      
+          1496   72   80   80   80   76   85   62   62   67   67   72   85      
+          1497   85   76   76   80   80   80   76   93   99   99   99   99      
+          1498  107  112  126  143  147  192  192  107  112  107  103   99      
+          1499  103  103  103   99   76   72   62   54   49   54   58   58      
+          1500   58   58   58   58   54   54   54   54   58   62   62   62      
