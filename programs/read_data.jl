@@ -84,3 +84,49 @@ close(pricefile)
 
 # Export data to csv
 writetable("../data/ICPSR_09777_prices_clean.csv",data[!isna(data[:price]),:])
+
+# Read in Quantity Data
+qdata = DataFrame(
+	comm = ASCIIString[],
+	year = Int64[],
+	month = Int64[],
+	quantity = Int64[]
+	)
+qfile = open("../data/ICPSR_09777_quantities/DS0001/09777-0001-Data.txt")
+lines = readlines(qfile)
+
+# First part: 1825 - 1850
+for l = collect([25:394;402:489])
+	comm = strip(lines[l][5:14])
+	if l<=394
+		head = 23
+	elseif l>=402
+		head = 400
+	end
+	for i in collect(16:5:51)
+		year = parse(Int,lines[head][i:i+3])
+		if lines[head+1][i+1:i+2]=="MR"
+			month = 3
+		elseif lines[head+1][i+1:i+2]=="JA"
+			month = 1
+		elseif lines[head+1][i+1:i+2]=="OC"
+			month = 10
+		end
+		if lines[l][i:i+3]=="    "
+			quantity = 0
+		else
+			quantity = parse(Int,lines[l][i:i+3])
+		end
+
+		push!(qdata,@data([comm,year,month,quantity]))
+	end
+end
+
+for i = 1:size(qdata)[1]
+	if qdata[i,:quantity]==0
+		qdata[i,:quantity] = NA
+	end
+end
+
+close(qfile)
+writetable("../data/ICPSR_09777_quantities_clean.csv",qdata[!isna(qdata[:quantity]),:])
