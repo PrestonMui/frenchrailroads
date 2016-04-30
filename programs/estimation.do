@@ -1,10 +1,10 @@
 clear all
 set more off
+cap log close
+log using estimation.log, replace
 
 * Read in Data
-
-insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
-
+	insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	drop if year > 1870
 
 	* We need to create our generic biweekly time series
@@ -15,7 +15,7 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	* Sadly, the communes need to be reformated
 	replace comm = "DOUAI" if comm=="DUOAI"
 	replace comm = lower(comm)
-	
+
 	local i = 1
 	while `i' > 0 {
 		replace comm = regexr(comm, "[^a-z]","")
@@ -45,13 +45,22 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	gen year = ceil(tweek/24) + 1824
 	order tweek year week
 	tsset tweek
-	
+
+	* 1842
 	keep if year < 1842
+
+* Estimation shit
+
+	local pricelist 
 	foreach var of varlist price* {
+	* foreach var of varlist pricealbertville - pricebarleduc {
 		qui count if missing(`var')
-		if r(N) > 0 {
-			drop `var'
+		if r(N) == 0 {
+			local pricelist `pricelist' `var'
 		}
 	}
 
-	vecrank price*
+	disp "`pricelist'"
+	varsoc `pricelist'
+	* vecrank `pricelist', lags(3)
+	* vec `pricelist', lags(3) rank(3) alpha
