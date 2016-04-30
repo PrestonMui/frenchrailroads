@@ -8,6 +8,7 @@ local cluster = 0
 
 if `cluster'==1 {
 	set processors 4
+	set matsize 11000
 }
 
 ************************
@@ -54,7 +55,7 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 
 	* Drop if quantity < 500
 	merge m:1 comm using "temp/quantities", keep(master match) nogen
-	drop if quantity < 500
+	drop if quantity < 500 | inlist(comm,"albertville","peyrehorade","pontlabbe","saintbrieuc")
 	drop quantity
 
 	* Interpolate
