@@ -6,7 +6,8 @@ Date,comm1,comm2
 18340201,Andrezieux,Roanne
 18351001,Epinac,Canal de Bourgogne
 18351201,Montbrison,Montrond
-18370826,Paris,Le Pecq1838-10-21,Abscon,Saint-Vaast
+18370826,Paris,Le Pecq
+18381021,Abscon,Saint-Vaast
 18390101,Le Creuzot,Canal deu centre
 18390101,Villers-Cotterets,Port aux Perches
 18390308,Montpellier,Cette
@@ -59,7 +60,7 @@ Date,comm1,comm2
 18490705,Paris,Meaux
 18490712,Versailles,Chartres
 18490801,Saumur,Angers
-18490812,Meaux-Epernay
+18490812,Meaux,Epernay
 18490812,Montereau,Tonnerre
 18490812,Paris,Melun
 18490820,Saint-Pierre,Calais
@@ -203,7 +204,8 @@ Date,comm1,comm2
 18590811,Thionville,Frontiere du Luxembourg
 18590825,Mont de Marsan,Riscle
 18590914,Charleville,Nouzon
-18590922,Paris,Vincennes,La Varenne
+18590922,Paris,Vincennes
+18590922,Vincennes,La Varenne
 18590924,Riscle,Tarbes
 18591101,Couliboeuf,Falaise
 18591107,Doyet,La Presle

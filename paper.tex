@@ -1,7 +1,7 @@
 \documentclass[12pt,twoside]{article}
 \usepackage{problemset}
 \usepackage{hanging}
-\runningheads{Preston Mui}{Econ-210a: How much did Railroads Affect Market Integration? Evidence from 19th Century France}
+\runningheads{Preston Mui}{Econ-210a: Did Railroads Integrate Markets? Evidence from 19th Century France}
 
 \begin{document}
 
@@ -18,22 +18,19 @@
 
 \section{Estimation strategy}
 
+Denoting $p_t = (p_{1t},\cdots,p_{Nt})^{\prime}$ as the vector of logged grain prices at $N$ communes at time $t$. Considering a VAR with $L$ lags:
+\begin{align*}
+	p_t &= v + \sum_{l=1}^L A_l y_{t-l} + \epsilon_t
+\end{align*}
+This model can be rewritten in the form of a vector error-correction model:
+\begin{align*}
+	\Delta p_t &= v + \Pi p_{t-1} + \sum_{l=1}^{L-1} \Gamma_l \Delta y_{t-l}  + \epsilon_t
+\end{align*}
+
 
 
 \section{Results}
 
 \section{Conclusion}
-
-\newpage
-\begin{thebibliography}{9}
-
-\bibitem{lamport94}
-  Leslie Lamport,
-  \emph{\LaTeX: a document preparation system},
-  Addison Wesley, Massachusetts,
-  2nd edition,
-  1994.
-
-\end{thebibliography}
 
 \end{document}
