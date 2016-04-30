@@ -4,25 +4,39 @@ set rmsg on
 cap log close
 log using estimation.log, replace
 
+************************
 * Read in Data
-	insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
-	drop if year > 1870
+************************
 
-	* We need to create our generic biweekly time series
-	* Time encoding: 1 = 1825m1w1, 2 = 1825 m1.5, etc...
-	gen tweek = 24 * (year - 1825) + week
-	format tweek %tg
-
-	* Sadly, the communes need to be reformated
-	replace comm = "DOUAI" if comm=="DUOAI"
+* Quantity data
+insheet using "../data/ICPSR_09777_quantities_clean.csv", comma clear
 	replace comm = lower(comm)
-
 	local i = 1
 	while `i' > 0 {
 		replace comm = regexr(comm, "[^a-z]","")
 		count if regexm(comm,"[^a-z]")
 		local i = r(N)
 	}
+	keep if year==1825
+	keep comm quantity
+	duplicates drop comm, force
+save "temp/quantities", replace
+
+insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
+
+	drop if year > 1870
+	replace comm = lower(comm)
+	local i = 1
+	while `i' > 0 {
+		replace comm = regexr(comm, "[^a-z]","")
+		count if regexm(comm,"[^a-z]")
+		local i = r(N)
+	}
+	
+	* We need to create our generic biweekly time series
+	* Time encoding: 1 = 1825m1w1, 2 = 1825 m1.5, etc...
+	gen tweek = 24 * (year - 1825) + week
+	format tweek %tg
 
 	* Adjustments to price data
 	replace price = log(price)
@@ -63,5 +77,5 @@ log using estimation.log, replace
 
 	disp "`pricelist'"
 	varsoc `pricelist'
-	* vecrank `pricelist', lags(3)
+	vecrank `pricelist', lags(2)
 	* vec `pricelist', lags(3) rank(3) alpha
