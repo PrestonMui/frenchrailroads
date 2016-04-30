@@ -4,6 +4,12 @@ set rmsg on
 cap log close
 log using estimation.log, replace
 
+local cluster = 0
+
+if `cluster'==1 {
+	set processors 4
+}
+
 ************************
 * Read in Data
 ************************
@@ -17,9 +23,8 @@ insheet using "../data/ICPSR_09777_quantities_clean.csv", comma clear
 		count if regexm(comm,"[^a-z]")
 		local i = r(N)
 	}
-	keep if year==1825
-	keep comm quantity
-	duplicates drop comm, force
+	keep if year<=1842
+	collapse (mean) quantity, by(comm)
 save "temp/quantities", replace
 
 insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
@@ -47,6 +52,11 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	drop if missing(comm)
 	sort comm tweek
 
+	* Drop if quantity < 500
+	merge m:1 comm using "temp/quantities", keep(master match) nogen
+	drop if quantity < 500
+	drop quantity
+
 	* Interpolate
 	replace price = (1/2) * price[_n-1] + (1/2) * price[_n+1] if comm==comm[_n-1] & comm==comm[_n+1] & missing(price)
 	replace price = (2/3) * price[_n-1] + (12/3) * price[_n+2] if comm==comm[_n-1] & comm==comm[_n+2] & missing(price)
@@ -64,18 +74,29 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	* 1842
 	keep if year < 1842
 
+************************
 * Estimation shit
+************************
 
 	local pricelist 
-	foreach var of varlist price* {
-	* foreach var of varlist pricealbertville - pricebarleduc {
-		qui count if missing(`var')
-		if r(N) == 0 {
-			local pricelist `pricelist' `var'
+	if `cluster'==1 {
+		foreach var of varlist price* {
+			qui count if missing(`var')
+			if r(N) == 0 {
+				local pricelist `pricelist' `var'
+			}
+		}
+	}
+	if `cluster'==0 {
+		foreach var of varlist pricealbertville - pricebarleduc {
+			qui count if missing(`var')
+			if r(N) == 0 {
+				local pricelist `pricelist' `var'
+			}
 		}
 	}
 
 	disp "`pricelist'"
 	varsoc `pricelist'
-	vecrank `pricelist', lags(2)
+	* vecrank `pricelist'
 	* vec `pricelist', lags(3) rank(3) alpha
