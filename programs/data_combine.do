@@ -20,7 +20,12 @@ insheet using "../data/ICPSR_09777_quantities_clean.csv", comma clear
 save "temp/quantities", replace
 
 *********************
-* 2. Price data
+* 2. Comm Lat-Lon Data
+*********************
+
+
+*********************
+* 3. Price data
 *********************
 insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 
@@ -64,18 +69,33 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	ren comm comm1
 	ren price price1
 	joinby year week tweek using "temp/pricedata"
-
 	ren comm comm2
 	ren price price2
+
+	* Drop duplicate observations
+	drop if comm2 < comm1
 
 	sort comm1 comm2 tweek
 	egen id = group(comm1 comm2)
 
 	* Merge in coordinate data, calculate distances
-	ren comm1 comm
-	merge m:1 comm using "dfadslfs", 
-	ren comm2 comm
-	jflsdf..... fuck
+	forv i = 1/2 {
+		ren comm`i' comm
+		merge m:1 comm using "../data/communes_latlon", assert(3) nogen
+		ren lat lat`i'
+		ren lon lon`i'
+		ren comm comm`i'
+	}
 
-	* look you can even run a regression here
+	* Calculate distances
+	foreach var of varlist lat* lon* {
+		replace `var' = 3.14159 * `var' / 180
+	}
+	gen dlon = lon2 - lon1
+	gen dlat = lat2 - lat1
+	gen a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 
+	gen dist = 6371 * 2 * atan2( sqrt(a), sqrt(1-a) ) 
 
+	drop lat* lon* dlon dlat a
+
+save "../data/estimationdata", replace
