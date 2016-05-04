@@ -25,6 +25,8 @@ save "temp/quantities", replace
 insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 
 	drop if year > 1870
+	drop dept
+
 	replace comm = lower(comm)
 	local i = 1
 	while `i' > 0 {
@@ -47,18 +49,33 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	drop if missing(comm)
 	sort comm tweek
 
-	if `limited_sample'==1 {
-		keep if inlist(comm,"bordeaux","montbrison","arrac","barleduc","saintlo","toulouse","nantes","beaugency")
-	}
-	else {
-		merge m:1 comm using "temp/quantities", keep(master match) nogen
-		drop if quantity < 500 | inlist(comm,"albertville","peyrehorade","pontlabbe","saintbrieuc")
-		drop quantity
-	}
-
 	* Interpolate
 	replace price = (1/2) * price[_n-1] + (1/2) * price[_n+1] if comm==comm[_n-1] & comm==comm[_n+1] & missing(price)
 	replace price = (2/3) * price[_n-1] + (1/3) * price[_n+2] if comm==comm[_n-1] & comm==comm[_n+2] & missing(price)
 	replace price = (1/3) * price[_n-2] + (2/3) * price[_n+1] if comm==comm[_n-2] & comm==comm[_n+1] & missing(price)
 
-	
+	replace week = mod(tweek,24) if missing(week)
+	replace week = 24 if week==0
+	replace year = (tweek - week)/24 + 1825 if missing(year)
+	drop _fillin
+
+	* Create bilateral panel
+	save "temp/pricedata", replace
+	ren comm comm1
+	ren price price1
+	joinby year week tweek using "temp/pricedata"
+
+	ren comm comm2
+	ren price price2
+
+	sort comm1 comm2 tweek
+	egen id = group(comm1 comm2)
+
+	* Merge in coordinate data, calculate distances
+	ren comm1 comm
+	merge m:1 comm using "dfadslfs", 
+	ren comm2 comm
+	jflsdf..... fuck
+
+	* look you can even run a regression here
+
