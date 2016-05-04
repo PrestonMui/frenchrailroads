@@ -5,99 +5,70 @@ cap log close
 log using estimation.log, replace
 
 local cluster = 0
+local limited_sample = 0
+local vecbilateral = 1
+local vecmultilateral = 0
+local varianceregressions = 1
 
 if `cluster'==1 {
 	set processors 4
 	set matsize 11000
 }
+else{
+	set matsize 800
+}
 
-************************
-* Read in Data
-************************
-
-* Quantity data
-insheet using "../data/ICPSR_09777_quantities_clean.csv", comma clear
-	replace comm = lower(comm)
-	local i = 1
-	while `i' > 0 {
-		replace comm = regexr(comm, "[^a-z]","")
-		count if regexm(comm,"[^a-z]")
-		local i = r(N)
-	}
-	keep if year<=1842
-	collapse (mean) quantity, by(comm)
-save "temp/quantities", replace
-
-insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
-
-	drop if year > 1870
-	replace comm = lower(comm)
-	local i = 1
-	while `i' > 0 {
-		replace comm = regexr(comm, "[^a-z]","")
-		count if regexm(comm,"[^a-z]")
-		local i = r(N)
-	}
 	
-	* We need to create our generic biweekly time series
-	* Time encoding: 1 = 1825m1w1, 2 = 1825 m1.5, etc...
-	gen tweek = 24 * (year - 1825) + week
-	format tweek %tg
+	* if `vecbilateral'==1 {
+	* 	tempfile results
+	* 	local numcommsminusone = `numcomms' - 1
 
-	* Adjustments to price data
-	replace price = log(price)
-	fillin year week
-	drop _fillin
-	replace tweek = 24 * (year - 1825) + week if missing(tweek)
-	fillin tweek comm
-	drop if missing(comm)
-	sort comm tweek
+	* 	forv i = 1/`numcommsminusone' {
+	* 		local iplusone = `i' + 1
+	* 		forv j = `iplusone'/`numcomms' {
+	* 			forv year = 1825(2)1870 {
 
-	* Drop if quantity < 500
-	merge m:1 comm using "temp/quantities", keep(master match) nogen
-	drop if quantity < 500 | inlist(comm,"albertville","peyrehorade","pontlabbe","saintbrieuc")
-	drop quantity
+	* 				local yearp1 = `year' + 1
 
-	* Interpolate
-	replace price = (1/2) * price[_n-1] + (1/2) * price[_n+1] if comm==comm[_n-1] & comm==comm[_n+1] & missing(price)
-	replace price = (2/3) * price[_n-1] + (12/3) * price[_n+2] if comm==comm[_n-1] & comm==comm[_n+2] & missing(price)
-	replace price = (1/3) * price[_n-2] + (2/3) * price[_n+1] if comm==comm[_n-2] & comm==comm[_n+1] & missing(price)
+	* 				qui count if (missing(price`i') | missing(price`j')) & (year==`year' | year==`yearp1')
+	* 				if r(N)!=0 exit
 
-	* Shape data into wide format
-	keep tweek comm price
-	reshape wide price, i(tweek) j(comm) string
-	gen week = mod(tweek,24)
-	replace week = 24 if week==0
-	gen year = ceil(tweek/24) + 1824
-	order tweek year week
-	tsset tweek
+	* 				qui gen p = price`i' - price`j'
+	* 				qui gen lag1_p = l1.p
+	* 				qui gen dp = p - lag1_p
+	* 				forv l = 1/2 {
+	* 					qui gen lag`l'_dp = l`l'.dp
+	* 				}
 
-	* 1842
-	keep if year < 1842
+	* 				qui reg dp lag1_p lag*_dp if year==`year' | year==`yearp1'
+	* 				mat results = (`i',`j',`year',_b[lag1_p],_se[lag1_p])
+					
+	* 				preserve
+	* 					clear
+	* 					qui svmat results
+	* 					cap append using "`results'"
+	* 					qui save "`results'", replace
+	* 				restore
 
-************************
-* Estimation shit
-************************
+	* 				drop p lag1_p dp lag*_dp
+	* 			}
+	* 		}
+	* 	}
 
-	local pricelist 
-	if `cluster'==1 {
-		foreach var of varlist price* {
-			qui count if missing(`var')
-			if r(N) == 0 {
-				local pricelist `pricelist' `var'
-			}
-		}
-	}
-	if `cluster'==0 {
-		foreach var of varlist pricealbertville - pricebarleduc {
-			qui count if missing(`var')
-			if r(N) == 0 {
-				local pricelist `pricelist' `var'
-			}
-		}
-	}
+	* 	use "`results'", clear
 
-	disp "`pricelist'"
-	varsoc `pricelist'
-	* vecrank `pricelist'
-	* vec `pricelist', lags(3) rank(3) alpha
+	* 	ren results1 comm1
+	* 	ren results2 comm2
+	* 	ren results3 year
+	* 	ren results4 beta
+	* 	ren results5 se_beta
+
+	* 	gen ce1 = beta - 1.96 * se_beta
+	* 	gen ce2 = beta + 1.96 * se_beta
+
+	* 	gen significant = 0 < ce1 | 0 > ce2		
+	* }
+	* if `vecmultilateral'==1 {
+
+	* }
+	
