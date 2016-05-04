@@ -5,8 +5,8 @@ set more off
 set rmsg on
 cap log close
 
-local rails = 1
-local communes = 0
+local rails = 0
+local communes = 1
 
 tempfile tmp
 
@@ -101,6 +101,14 @@ if `communes'==1 {
 
 	qui replace lat = substr(lat,1,length(lat) - 1)
 	qui destring lat lon, replace
+
+	replace comm = lower(subinstr(comm, " France","",.))
+	local i = 1
+	while `i' > 0 {
+		replace comm = regexr(comm, "[^a-z]","")
+		count if regexm(comm,"[^a-z]")
+		local i = r(N)
+	}
 
 	save "../data/communes_latlon", replace
 }
