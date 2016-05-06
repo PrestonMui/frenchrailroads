@@ -15,8 +15,7 @@ Date,comm1,comm2
 18390912,Mulhouse,Thann
 18400819,Alais,Beaucaire
 18400910,Paris,Versailles
-18400920,Juvisy,Corbeil
-18400920,Paris,Juvisy
+18400920,Paris,Corbeil
 18401018,Benfeld,Colmar
 18410101,Alais,Lalevade
 18410101,Long Rocher,Canal du Loing
@@ -25,7 +24,7 @@ Date,comm1,comm2
 18410815,Colmar,Mulhouse
 18420101,Saint-Vaast,Anzin
 18421101,Lille,Valenciennes
-18430305,Juvisy,Orleans
+18430305,Paris,Orleans
 18430309,Colombes,Saint-Sever
 18440326,Koenigshoffen,Strasbourg
 18440615,Saint-Louis,Bale
@@ -43,7 +42,7 @@ Date,comm1,comm2
 18470720,Vierzon,Bourges
 18471018,Saint-Chamas,Rognonas
 18471021,Creil,Compiegne
-18471105,Saint-Chamas,Pas de Lanciers
+18471105,Saint-Chamas,Pas des Lanciers
 18471115,Vierzon,Chateauroux
 18471122,Abbeville,Neufchatel
 18480115,Pas des Lanciers,Marseille
@@ -100,7 +99,7 @@ Date,comm1,comm2
 18540601,Nogent le Rotrou,Le Mans
 18540619,Varennes,Saint Germain des Fosses
 18540629,Valence,Avignon
-18540710,Chalon,Lyon Vaise
+18540710,Chalon-sur-Saone,Lyon
 18540724,Vireux,Frontiere belge
 18540729,Bourg la Reine,Orsay
 18540916,Metz,Thionville
@@ -110,16 +109,16 @@ Date,comm1,comm2
 18550527,Pessac,Bourdeaux
 18550531,Bordeaux,Langon
 18550625,Dijon,Dole
-18550701,Mantes,Liseux
+18550701,Mantes,Lisieux
 18550702,Clermont Ferrand,Issoire
 18550717,Saint Dizier,Donjeux
 18550718,Vendenheim,Haguenau
 18550811,Hautmont,Erquelines
-18550811,La Roche,Auxerre
+18550811,Migennes,Auxerre
 18550814,Le Mans,Laval
 18550903,Issoire,Brassac
 18551021,Saint Quentin,Hautmont
-18551023,Haguenau,Frontiere luxembourgeoise
+18551023,Haguenau,Frontiere du Luxembourg
 18551204,Langon,Tonneins
 18551229,Lisieux,Caen
 18560225,Beuzeville,Fecamp
@@ -129,7 +128,7 @@ Date,comm1,comm2
 18560529,Tonneins,Valence d'Agen
 18560602,Argenton,Limoges
 18560623,Bourg,Amberieu
-18560707,Noisy le Sec,Nogent sur MArne
+18560707,Noisy le Sec,Nogent sur Marne
 18560707,Poitiers,Niort
 18560830,Valence d'Agen,Toulouse
 18561010,La Guillotiere,Perrache
@@ -150,7 +149,7 @@ Date,comm1,comm2
 18570606,Chasse,Givors
 18570613,Saint Germain des Fosses,La Palisse
 18570624,Blainville,Epinal
-18570626,Villers Cotterets,Port aux Perches
+18570626,Villers-Cotterets,Port aux Perches
 18570710,Rives,Piquepierre
 18570720,Coutras,Perigueux
 18570725,La Teste,Arcachon
@@ -161,11 +160,11 @@ Date,comm1,comm2
 18570906,Saint Martin d'Oney,Mont de Marsan
 18570907,Aigrefeuille,Rochefort
 18570907,Niort,La Rochelle
-18570916,Chalons,Mourmelon
+18570916,Chalons-sur-Marne,Mourmelon
 18571014,Chaumont,Langres
 18571015,Dannemarie,Mulhouse
 18571201,Besseges,Alais
-18580101,Hautmont,Fronteire belge
+18580101,Hautmont,Frontiere belge
 18580201,Alencon,Argentan
 18580215,Dannemarie,Belfort
 18580220,Narbonne,Le Vernet
@@ -176,8 +175,6 @@ Date,comm1,comm2
 18580601,Lisieux,Pont l'Eveque
 18580605,Noyelles,Saint Valery
 18580607,La Palisse,Roanne
-18580607,Lapalisse,Roanne
-18580610,Reims,Rethel
 18580610,Reims,Rethel
 18580701,Lisieux,Pont l'Eveque
 18580701,Lyon,Bourgoin
@@ -197,22 +194,21 @@ Date,comm1,comm2
 18581228,Bedarieux,Graissessac
 18590201,Argentan,Mezidon
 18590503,Aubagne,Toulon
-18590510,Saint Denis,Creil par Chantilly
+18590510,Saint Denis,Creil
 18590517,Donchery,Sedan
 18590530,Saint Etienne,Firminy
 18590601,Saint Clair, Les Brotteaux
 18590811,Thionville,Frontiere du Luxembourg
 18590825,Mont de Marsan,Riscle
 18590914,Charleville,Nouzon
-18590922,Paris,Vincennes
-18590922,Vincennes,La Varenne
+18590922,Paris,La Varenne
 18590924,Riscle,Tarbes
 18591101,Couliboeuf,Falaise
 18591107,Doyet,La Presle
 18591107,La Presle,Bezenet
 18591107,Montlucon,Moulins
 18591124,La Guillotiere,Les Brotteaux
-18600204,Port d'Atelier,Aillevilliers Plombieres
+18600204,Port d'Atelier,Aillevillers Plombieres
 18600501,Lison,Saint Lo
 18600603,Paris,Sevran
 18600611,Le Rhone,Saint Jean de Maurienne
@@ -227,7 +223,7 @@ Date,comm1,comm2
 18610202,Gretz Armainvilliers,Morcerf
 18610511,Strasbourg,Kehl
 18610822,Bourgoin,Saint Andre le Gaz
-18610826,Limoges,Perigueuz
+18610826,Limoges,Perigueux
 18610831,Sevran,Villers Cotterets
 18610905,Bethune,Hazebrouck
 18610921,Chagny,Montceau les Mines
@@ -254,7 +250,7 @@ Date,comm1,comm2
 18620714,Les Batignolles,Bercy
 18620720,Troyes,Bar sur Seine
 18620801,Montmedy,Pierrepont
-18620809,Chantilly,Senils
+18620809,Chantilly,Senlis
 18620815,Tarbes,Bagneres de Bigorre
 18620901,Toulon,Les Arcs
 18620921,Rennes,Redon
@@ -263,7 +259,7 @@ Date,comm1,comm2
 18621115,Mouchard,Lons le Saulnier
 18621115,Mouchard,Pontarlier
 18630205,Givet,Frontiere belge
-18630212,Longwy Bas,Frontiere belge
+18630212,Longwy,Frontiere belge
 18630304,Dax,Pau
 18630323,Le Mans,Sable
 18630402,Mortcerf,Coulommiers
@@ -271,7 +267,7 @@ Date,comm1,comm2
 18630410,Les Arcs,Cagnes
 18630425,Pierrepont,Thionville
 18630518,Sorgues,Carpentras
-18630518,Villeneuve Saint Georges,Juvisy
+18630518,Villeneuve Saint Georges,Paris
 18630701,Pont l'Eveque,Trouville
 18630706,Colombes,Argenteuil
 18630730,Le Croix Rousse,Sathonay
@@ -285,7 +281,7 @@ Date,comm1,comm2
 18630908,Lorient,Quimper
 18630924,Epinal,Aillevillers Plombieres
 18630924,Vesoul,Gray
-18631109,Firminy,Pont du Lignon
+18631109,Firminy,Pont de Lignon
 18631125,Thann,Wesserling
 18631207,Sable,Angers
 18640125,Puyoo,Bayonne Mousserolles
@@ -328,7 +324,7 @@ Date,comm1,comm2
 18660301,Carling,Bening Merlebach
 18660314,Le Puy,Pont de Lignon
 18660314,Tarare,Saint Germain au Mont d'Or
-18660321,Perpignan,Colllioure
+18660321,Perpignan,Collioure
 18660409,Tarbes,Lourdes
 18660414,Langon,Bazas
 18660423,Castres,Mazamet
@@ -336,11 +332,11 @@ Date,comm1,comm2
 18660625,Choudy,Voglans
 18660701,Enghien les Bains,Montmorency
 18660702,Argentan,Flers
-18660705,Annecy,aix
+18660705,Annecy,Aix
 18660712,Montbrison,Andrezieux
 18660716,La Coteau,Amplepuis
 18660731,Mousserolles,Bayonne
-18660816,Massaic,Murat
+18660816,Massiac,Murat
 18660901,Chatillon sur Seine,Chaumont
 18660901,Sathonay,Bourg
 18660924,La Possonniere,Cholet
@@ -349,8 +345,8 @@ Date,comm1,comm2
 18661105,Laigle,Conches
 18661106,Aurillac,Figeac
 18661210,Brioude,Langeac
-18661230,Nantes,La Rouche sur Yon
-18661230,La Rouche sur Yon,Les Sables D'Olonne
+18661230,Nantes,La Roche sur Yon
+18661230,La Roche sur Yon,Les Sables D'Olonne
 18670107,Boulogne,Calais
 18670415,Rochefort,Saintes
 18670417,Rouen,Amiens
