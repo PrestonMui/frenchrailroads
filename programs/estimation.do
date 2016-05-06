@@ -18,7 +18,17 @@ else{
 	set matsize 800
 }
 
-	
+*********************
+* 1. Read in data
+*********************
+
+use "../data/estimationdata", clear
+
+*********************
+* 1. Regression 1:
+*********************
+
+
 	* if `vecbilateral'==1 {
 	* 	tempfile results
 	* 	local numcommsminusone = `numcomms' - 1

@@ -73,7 +73,7 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	ren price price2
 
 	* Drop duplicate observations
-	drop if comm2 < comm1
+	drop if comm2 <= comm1
 
 	sort comm1 comm2 tweek
 	egen id = group(comm1 comm2)
@@ -81,7 +81,7 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	* Merge in coordinate data, calculate distances
 	forv i = 1/2 {
 		ren comm`i' comm
-		merge m:1 comm using "../data/communes_latlon", assert(3) nogen
+		merge m:1 comm using "../data/communes_latlon", keep(match) nogen
 		ren lat lat`i'
 		ren lon lon`i'
 		ren comm comm`i'
@@ -95,7 +95,21 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	gen dlat = lat2 - lat1
 	gen a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 
 	gen dist = 6371 * 2 * atan2( sqrt(a), sqrt(1-a) ) 
+	gen logdist = log(dist)
 
 	drop lat* lon* dlon dlat a
 
+	* Seasonal dummies
+	gen q1 = inrange(week,1,6)
+	gen q2 = inrange(week,7,12)
+	gen q3 = inrange(week,13,18)
+
+*********************
+* 4. Create dependent variables
+*********************
+
+* Absolute log difference
+	gen abslogdiff = abs(log(price1) - log(price2))
+
+compress
 save "../data/estimationdata", replace
