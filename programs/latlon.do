@@ -5,8 +5,8 @@ set more off
 set rmsg on
 cap log close
 
-local rails = 0
-local communes = 1
+local rails = 1
+local communes = 0
 
 tempfile tmp
 
@@ -57,8 +57,9 @@ if `rails'==1 {
 
 replace lat = substr(lat,1,length(lat) - 1)
 destring lat lon, replace
+replace comm = subinstr(comm," France","",.)
 
-save "../data/cheminsdefer_latlon", replace
+outsheet using "../data/cheminsdefer_latlon.csv", comma replace
 
 }
 
@@ -110,5 +111,5 @@ if `communes'==1 {
 		local i = r(N)
 	}
 
-	save "../data/communes_latlon", replace
+	outsheet using "../data/communes_latlon", comma replace
 }
