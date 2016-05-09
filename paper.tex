@@ -1,24 +1,68 @@
 \documentclass[12pt,twoside]{article}
 \usepackage{problemset}
-\usepackage{hanging}
-\runningheads{Preston Mui}{Econ-210a: Did Railroads Integrate Markets? Evidence from 19th Century France}
+\usepackage[round]{natbib}
+\runningheads{Preston Mui}{Did Railroads Integrate Markets? Evidence from 19th Century France}
+
+\title{How much did Railroads Affect Market Integration? Evidence from 19th Century France}
+\date{\today}
+\author{Preston Mui \\ University of California, Berkeley}
 
 \begin{document}
 
-\begin{centering}
-\textbf{How much did Railroads Affect Market Integration? Evidence from 19th Century France}
-\end{centering}
+\maketitle
 
+\begin{abstract}
+   Abstract text
+   \footnote{I thank Sam Leone, Isabela Manelici, Patrick Russo, Brad Delong, and Barry Eichengreen for useful comments and discussion. The usual disclaimer applies. All mistakes are my responsibility.}
+   \footnote{All data and code for this project is available at https://github.com/PrestonMui/frenchrailroads.}
+\end{abstract}
+
+\newpage
 \section{Introduction}
 
 \section{Data}
-% Price data
+
+% \subsection{Data Sources}
+
+Grain prices, measured in centimes per hectoliter, were collected biweekly by local officials in various French \emph{communes} between 1825 and 1914, and sent to the national government.
+These data now reside at the French National Archives, and the price data from 53 \emph{communes} are publicly available from \cite{prices}.\footnote{Some \emph{communes} were eliminated by \cite{prices} due to imprecise or incomplete data.}
+The sample of \emph{communes} from \cite{prices} cover nearly all geographic areas of France, with the exception of Alsace-Lorraine near the border of Luxembourg.
+In general, the sample tends to include larger cities and port cities, as well as Northern cities due to higher wheat production in the North.
+\ref{fig:communes_map} shows the location of the \emph{communes} comprising the price data.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{figures/communes_map.pdf}
+	\caption{Location of \emph{communes} in price data \citep{prices}.}
+	\label{fig:communes_map}
+\end{figure}
+
 % Quantity data
+
 % Railroad openings data
+I obtain information on railroad openings from \cite{palau2,palau3,palau4}, who uses primary sources from the Musee Francais du Chemin de Fer (The French Train Museum), SNCF archives, and \emph{Annales de Mines}, a French technical mining journal from the 1800s.
+These sources contain information on every railroad opening in France between 1828 and 1870, including the location of the two endpoints, the day the route was opened, and the distance of the route.
+To get geographical distance information, I feed both the \emph{communes} from the grain price data and the rail stations into the Google Maps Geocoding API \citep{google} for latitudinal and longitudinal coordinates, and apply the haversine formula to calculate as-the-crow-flies distance between each pair of rail stations and \emph{communes}.
 
+% How many rail connections
+% I throw out the ones going to Belgium and Germany and Lux
+% How many total kilometers
+% Graph on the number of kilometers and the number of rail openings
+% On average, the distance between rail openigns is X kilometers
+
+Some matching betweeen the rail openings data and the grain data is required, as our interest is of rail connections between price locations, not rail stations.
+To this end, at any particular point in time during the sample period, I consider two rail stations to be connected if they are connected in a graph with rail stations as vertices and railroads as edges.
+Then, I consider two \emph{communes} to be ``connected'' by railroads at a particular point in time if any rail station within 25 kilometers of the first \emph{commune} is connected to any rail station within 25 kilometers of the second \emph{commune}.
+I assume that connections are symmetric in the sense that connections are unaffected by the direction of travel; that is, the statement ``Soissons is connected to Albi'' is equivalent to ``Albi is connected to Soissons.''
+By 1870, all but four \emph{communes} are associated with some rail station by this metric. %\footnote{Which ones?}
+
+% \subsection{Data Description}
+% Construction
+	% Map
+	
 \section{Estimation strategy}
-
 Denoting $p_t = (p_{1t},\cdots,p_{Nt})^{\prime}$ as the vector of logged grain prices at $N$ communes at time $t$. Considering a VAR with $L$ lags:
+
 \begin{align*}
 	p_t &= v + \sum_{l=1}^L A_l y_{t-l} + \epsilon_t
 \end{align*}
@@ -27,10 +71,13 @@ This model can be rewritten in the form of a vector error-correction model:
 	\Delta p_t &= v + \Pi p_{t-1} + \sum_{l=1}^{L-1} \Gamma_l \Delta y_{t-l}  + \epsilon_t
 \end{align*}
 
-
-
 \section{Results}
 
 \section{Conclusion}
+
+\newpage
+	
+\bibliographystyle{plainnat}
+\bibliography{paper} 
 
 \end{document}
