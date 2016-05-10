@@ -122,3 +122,4 @@ end
 	end
 
 writetable("../data/commune_connections.csv",connections)
+writetable("../data/cheminsdefer_connections.csv",openings)

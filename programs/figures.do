@@ -25,3 +25,59 @@ tw (area _Y _X, cmissing(n) fcolor(white) nodropbase) ///
 	yscale(off) xscale(off) graphregion(color(white)) bgcolor(white)
 
 graph export "../figures/communes_map.pdf", as(pdf) replace
+
+***************************
+* 2. Graph of number of lines, kilometers added
+***************************
+insheet using "../data/cheminsdefer_latlon.csv", comma clear
+save "temp/cheminsdefer_latlon", replace
+
+insheet using "../data/railopenings.csv", comma clear
+	forv i = 1/2 {
+		ren comm`i' comm
+		merge m:1 comm using "temp/cheminsdefer_latlon", keep(master match) nogen
+		ren lat lat`i'
+		ren lon lon`i'
+		ren comm comm`i'
+	}
+
+	foreach var of varlist lat* lon* {
+		replace `var' = 3.14159 * `var' / 180
+	}
+	gen dlon = lon2 - lon1
+	gen dlat = lat2 - lat1
+	gen a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 
+	gen dist = 6371 * 2 * atan2( sqrt(a), sqrt(1-a) ) 
+
+	gen year = round(date/10000)
+	gen num_lines = 1
+	collapse (sum) dist num_lines, by(year)
+	la var dist "KM of Lines"
+	la var num_lines "Number of Lines"
+	
+	graph twoway line num_lines year, yaxis(1) yscale(range(0) axis(1)) lcolor(black) ///
+		ytitle("Lines Opened") graphregion(color(white)) bgcolor(white) ///
+	|| line dist year, yaxis(2) yscale(range(0) axis(2)) lpattern(dash) lcolor(black) ///
+		ytitle("KM of Lines Opened", axis(2)) xtitle("Year") title("Rail Lines Opened, by Year")
+	
+graph export "../figures/lines_ts.pdf", as(pdf) replace
+
+***************************
+* 3. Create map of railroads
+***************************
+/* Read in stations
+* tempfile tmp
+*insheet using "../data/cheminsdefer_latlon.csv", comma clear
+*	save `tmp', replace
+insheet using "../data/cheminsdefer_connections.csv", comma clear
+	gen pairid = _n
+	reshape long comm lat lon id, i(pair date) j(temp)
+append using "../data/FRA_adm/FRA_adm0b"
+
+tw (area _Y _X, cmissing(n) fcolor(white) nodropbase) ///
+	(scatter lat lon, jitter(1) msize(vsmall) mlabcolor(black)), ///
+	name(simple, replace) ytitle("") legend(off) ylabel(none) xlabel(none) ///
+	yscale(off) xscale(off) graphregion(color(white)) bgcolor(white)
+
+graph export "../figures/communes_map.pdf", as(pdf) replace
+*/

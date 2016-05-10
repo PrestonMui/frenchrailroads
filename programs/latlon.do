@@ -52,12 +52,21 @@ if `rails'==1 {
 		qui replace lon = "`lon'" in `i'
 		local lat
 		local lon
-		sleep 1000
+		sleep 500
 	}
 
 replace lat = substr(lat,1,length(lat) - 1)
 destring lat lon, replace
 replace comm = subinstr(comm," France","",.)
+
+* Some will need manual fixing
+replace lat = 48.8566 if comm=="Paris"
+replace lon = 2.3522 if comm=="Paris"
+replace lat = 45.207044 if comm=="Pique-pierre"
+replace lon = 5.708411 if comm=="Pique-pierre"
+
+* Not really sure where this one is
+drop if comm=="Fournaux"
 
 outsheet using "../data/cheminsdefer_latlon.csv", comma replace
 
