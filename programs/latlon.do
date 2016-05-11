@@ -37,14 +37,24 @@ if `rails'==1 {
 
 		cap copy "https://maps.googleapis.com/maps/api/geocode/json?address=`addr'&key=AIzaSyCsDf3MMiLHZTtj1xMEs1PTcRua9p6831s" `tmp', replace
 		
+		if _rc!=0 {
+			exit
+		}
+
 		preserve
 			insheet using `tmp', clear
 			local numrows = _N
-			forv j = 1/`numrows' {
-				if regexm(v1[`j'],"location")==1 {
-					local lat = substr(v1[`j'+1],7,.)
-					local lon = substr(v1[`j'+2],7,.)
-					exit
+			if `numrows'==4 {
+				local lat = "."
+				local lon = "."
+			}
+			else {
+				forv j = 1/`numrows' {
+					if regexm(v1[`j'],"location")==1 {
+						local lat = substr(v1[`j'+1],7,.)
+						local lon = substr(v1[`j'+2],7,.)
+						exit
+					}
 				}
 			}
 		restore

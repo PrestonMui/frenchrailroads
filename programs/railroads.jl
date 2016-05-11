@@ -35,6 +35,17 @@ end
 	sort!(latlons, cols= [:comm])
 	latlons[:id] = collect(1:size(latlons)[1])
 
+	# temp = DataFrame(
+	# 	station1 = ASCIIString[],
+	# 	station2 = ASCIIString[],
+	# 	dist = Float64[])
+	# for i = 1:size(latlons)[1]
+	# 	for j = i+1:size(latlons)[1]
+	# 		dist = latlondist(latlons[i,:lat],latlons[i,:lon],latlons[j,:lat],latlons[j,:lon])
+	# 		push!(temp, @data([latlons[i,:comm], latlons[j,:comm], dist]))
+	# 	end
+	# end
+
 	# Join Lat/Lon to Openings
 	for i in ["1","2"]
 		rename!(openings,symbol(string("comm",i)),:comm)
@@ -67,7 +78,7 @@ end
 	for i = 1:size(pricecommunes)[1]
 		commune_chemins[i] = Array{Int64,1}[]
 		for j = 1:size(latlons)[1]
-			if latlondist(pricecommunes[i,:lat],pricecommunes[i,:lon],latlons[j,:lat],latlons[j,:lon]) < 25
+			if latlondist(pricecommunes[i,:lat],pricecommunes[i,:lon],latlons[j,:lat],latlons[j,:lon]) < 40
 				push!(commune_chemins[i],j)
 			end
 		end

@@ -8,14 +8,14 @@ Date,comm1,comm2
 18351201,Montbrison,Montrond
 18370826,Paris,Le Pecq
 18381021,Abscon,Saint-Vaast
-18390308,Montpellier,Cette Pizza
-18390802,Asnieres,Versailles
+18390308,Montpellier,Sete
+18390802,Asnieres-sur-Seine,Versailles
 18390912,Mulhouse,Thann
 18400819,Ales,Beaucaire
 18400910,Paris,Versailles
-18400920,Paris,Corbeil
+18400920,Paris,Corbeil-Essonnes
 18401018,Benfeld,Colmar
-18410101,Ales,Lalevade
+18410101,Ales,La Levade La Grand-Combe
 18410301,Koenigshoffen,Benfeld
 18410707,Bordeaux,La Teste-de-Buch
 18410815,Colmar,Mulhouse
@@ -70,7 +70,7 @@ Date,comm1,comm2
 18500905,Chalons-sur-Marne,Vitry-le-Francois
 18501005,Le Guetin,Nevers
 18501005,Nerondes,Le Guetin
-18510428,Asnieres,Argenteuil
+18510428,Asnieres-sur-Seine,Argenteuil
 18510527,Vitry-le-Francois,Bar-le-Duc
 18510529,Sarrebourg,Strasbourg
 18510622,Tonnerre,Dijon
@@ -111,7 +111,7 @@ Date,comm1,comm2
 18550811,Migennes,Auxerre
 18550814,Le Mans,Laval
 18550903,Issoire,Brassac-les-mines
-18551021,Saint Quentin,Hautmont
+18551021,Saint-Quentin,Hautmont
 18551023,Haguenau,Frontiere du Luxembourg
 18551204,Langon,Tonneins
 18551229,Lisieux,Caen
@@ -132,7 +132,7 @@ Date,comm1,comm2
 18561110,Gray,Auxonne
 18570112,Morcenx,Saint Martin d'Oney
 18570209,Nogent sur Marne,Nangis
-18570422,Toulouse,Cette Pizza
+18570422,Toulouse,Sete
 18570425,Donjeux,Chaumont
 18570425,Nangis,Flamboin
 18570425,Troyes,Chaumont
@@ -141,9 +141,8 @@ Date,comm1,comm2
 18570516,Dole,Salins-les-Bains
 18570606,Bourg-en-Bresse,La Saone Ain
 18570606,Chasse,Givors
-18570613,Saint Germain des Fosses,La Palisse
+18570613,Saint Germain des Fosses,LaPalisse
 18570624,Blainville-sur-l'Eau,Epinal
-18570626,Villers-Cotterets,Le Port aux Perches
 18570710,Rives,Pique-pierre
 18570720,Coutras,Perigueux
 18570725,La Teste-de-Buch,Arcachon
@@ -168,7 +167,7 @@ Date,comm1,comm2
 18580501,Noyelles,Saint Valery
 18580601,Lisieux,Pont l'Eveque
 18580605,Noyelles,Saint Valery
-18580607,La Palisse,Roanne
+18580607,LaPalisse,Roanne
 18580610,Reims,Rethel
 18580701,Lisieux,Pont l'Eveque
 18580701,Lyon,Bourgoin
@@ -179,22 +178,22 @@ Date,comm1,comm2
 18580719,Tours,Le Mans
 18580722,Chalindrey,Gray
 18580830,Montauban,Le Lot
-18580902,Culoz,Le Rhone
-18580915,Rethel,Charleville
+18580902,Culoz,Route de Saint-Innocent
+18580915,Rethel,Charleville-Mezieres
 18580920,Beziers,Bedarieux
 18581020,Marseille,Aubagne
 18581211,Longueville,Provins
-18581214,Charleville,Donchery
+18581214,Charleville-Mezieres,Donchery
 18581228,Bedarieux,Graissessac
 18590201,Argentan,Mezidon
 18590503,Aubagne,Toulon
 18590510,Saint Denis,Creil
 18590517,Donchery,Sedan
-18590530,Saint Etienne,Firminy
+18590530,Saint-Etienne,Firminy
 18590601,Saint Clair, Les Brotteaux
 18590811,Thionville,Frontiere du Luxembourg
 18590825,Mont de Marsan,Riscle
-18590914,Charleville,Nouzon
+18590914,Charleville-Mezieres,Nouzonville
 18590922,Paris,La Varenne Saint-Hilaire
 18590924,Riscle,Tarbes
 18591101,Couliboeuf,Falaise
@@ -204,7 +203,7 @@ Date,comm1,comm2
 18600204,Port d'Atelier,Aillevillers Plombieres
 18600501,Lison,Saint Lo
 18600603,Paris,Sevran
-18600611,Le Rhone,Saint Jean de Maurienne
+18600611,Route de Saint-Innocent,Saint Jean de Maurienne
 18600801,Ougney,La Barre Jura
 18600814,Moret,Montargis
 18600917,Perigueux,Brive-la-Gaillarde
@@ -226,16 +225,15 @@ Date,comm1,comm2
 18611105,Arvant,Massiac
 18611209,Bourges,Montlucon
 18620104,Arras,Lens
-18620109,Chabons,Grand Lemps
+18620109,Chabons,Le Grand Lemps
 18620217,Livron,Privas
 18620315,Saint Jean de Maurienne,Saint Michel de Maurienne
 18620407,Pamiers,Foix
 18620416,Reims,Soissons
 18620428,Carignan,Montmedy
-18620428,Nouzon,Givet
+18620428,Nouzonville,Givet
 18620515,Saint Germain des Fosses,Vichy
 18620602,Villers Cotterets,Soissons
-18620603,Lyon,La Croix Rousse
 18620609,Portet Saint Simon,Montrejeau
 18620614,Saint Andre le Gaz,Chabons
 18620707,Pont l'Eveque, Honfleur
@@ -251,7 +249,7 @@ Date,comm1,comm2
 18621115,Mouchard,Pontarlier
 18630205,Givet,Frontiere belge
 18630212,Longwy,Frontiere belge
-18630304,Dax,Pau
+18630304,Dax,Pau Pyrenees-Atlantiques
 18630323,Le Mans,Sable
 18630402,Mortcerf,Coulommiers
 18630408,Agde,Clermont l'Herault
@@ -261,7 +259,7 @@ Date,comm1,comm2
 18630518,Villeneuve Saint Georges,Paris
 18630701,Pont l'Eveque,Trouville
 18630706,Colombes,Argenteuil
-18630730,Le Croix Rousse,Sathonay
+18630730,Lyon,Sathonay-Camp
 18630801,Ermont,Argenteuil
 18630801,Saint Ouen l'Aumone,Pontoise
 18630803,Perigueux,Agen
@@ -300,7 +298,7 @@ Date,comm1,comm2
 18641229,Busseau Village,Fournaux
 18641229,Montlucon,Busseau Village
 18641229,Schlestadt,Sainte Marie aux Mines
-18650105,Corbeil,Maisse
+18650105,Corbeil-Essonnes,Maisse
 18650308,Bully Grenay,Canal d'Aire a la Bassee
 18650416,Castelnaudary,Castres
 18650426,Guingamp,Brest
@@ -325,7 +323,7 @@ Date,comm1,comm2
 18660705,Annecy,Aix-les-Bains
 18660712,Montbrison,Andrezieux
 18660716,La Coteau,Amplepuis
-18660816,Massiac,Murat
+18660816,Massiac,Murat Cantal
 18660901,Chatillon sur Seine,Chaumont
 18660901,Sathonay-Camp,Bourg-en-Bresse
 18660924,La Possonniere,Cholet
@@ -342,31 +340,31 @@ Date,comm1,comm2
 18670506,Maisse,Montargis
 18670331,Saintes,Cognac
 18670620,Montrejeau,Tarbes
-18670620,Lourdes,Pau
+18670620,Lourdes,Pau Pyrenees-Atlantiques
 18670701,Amiens,Tergnier
-18670715,Andelot,Champagnole
+18670715,Andelot-en-Montagne,Champagnole
 18670723,Saint Hilaire au Temple,Sainte Menehould
 18670805,L'Aigle,Gare de Surdon
 18670805,Vendome,Mettray
 18670805,Haubourdin,Violaines
-18670812,Villefort,La Levade
+18670812,Villefort,La Levade La Grand-Combe
 18670814,Bologne,Neufchateau
 18670818,Collioure,Port Vendres
 18670826,Orsay,Limours
 18670916,Flers,Vire
 18670916,Cercy la Tour,Montchanin
 18670916,Autun,Etang-sur-Arroux
-18670916,Montceau les Mines,Dgoin
+18670916,Montceau les Mines,Digoin
 18671001,Vitre,Fourgeres
 18671022,Cognac,Angouleme
 18671216,Chateaulin,Landerneau
 18671223,Poitiers,Limoges
 18680127,Lunel,Arles
-18680127,Aubagne,Valdonne
+18680127,Aubagne,Valdonne Peypin
 18680528,Anor,Frontiere belge
 18680629,Montbeliard,Delle
 18680701,Haubourdin,Porte des Postes
-18680720,Murat,Aurillac
+18680720,Murat Cantal,Aurillac
 18680815,Violaines,Bethune
 18680914,Malesherbes,Pithiviers
 18681004,Pontoise,Gisors
