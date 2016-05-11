@@ -20,9 +20,15 @@ insheet using "../data/ICPSR_09777_quantities_clean.csv", comma clear
 save "temp/quantities", replace
 
 *********************
-* 2. Comm Lat-Lon Data
+* 2. Rail openings data
 *********************
-
+insheet using "../data/commune_connections.csv", comma clear
+	destring dist, force replace
+	ren dist raildist
+	drop comm1 comm2
+	ren comm1name comm1
+	ren comm2name comm2
+save "temp/commune_connections", replace
 
 *********************
 * 3. Price data
@@ -45,8 +51,10 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	gen tweek = 24 * (year - 1825) + week
 	format tweek %tg
 
-	* Adjustments to price data
+	* Prices in logs
 	replace price = log(price)
+
+	* Get full panel
 	fillin year week
 	drop _fillin
 	replace tweek = 24 * (year - 1825) + week if missing(tweek)
@@ -55,9 +63,9 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	sort comm tweek
 
 	* Interpolate
-	replace price = (1/2) * price[_n-1] + (1/2) * price[_n+1] if comm==comm[_n-1] & comm==comm[_n+1] & missing(price)
-	replace price = (2/3) * price[_n-1] + (1/3) * price[_n+2] if comm==comm[_n-1] & comm==comm[_n+2] & missing(price)
-	replace price = (1/3) * price[_n-2] + (2/3) * price[_n+1] if comm==comm[_n-2] & comm==comm[_n+1] & missing(price)
+	* replace price = (1/2) * price[_n-1] + (1/2) * price[_n+1] if comm==comm[_n-1] & comm==comm[_n+1] & missing(price)
+	* replace price = (2/3) * price[_n-1] + (1/3) * price[_n+2] if comm==comm[_n-1] & comm==comm[_n+2] & missing(price)
+	* replace price = (1/3) * price[_n-2] + (2/3) * price[_n+1] if comm==comm[_n-2] & comm==comm[_n+1] & missing(price)
 
 	replace week = mod(tweek,24) if missing(week)
 	replace week = 24 if week==0
@@ -104,12 +112,26 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	gen q2 = inrange(week,7,12)
 	gen q3 = inrange(week,13,18)
 
+	* Rail openings
+	merge 1:1 tweek comm1 comm2 using "temp/commune_connections", nogen
+	gen hasrail = !missing(raildist)
+	gen hasrail_dist = hasrail * dist
+	gen hasrail_logdist = hasrail * logdist
+
+	* Fixed effects
+	egen comm1group = group(comm1)
+	egen comm2group = group(comm2)
+
 *********************
-* 4. Create dependent variables
+* 5. Create dependent variables
 *********************
 
 * Absolute log difference
-	gen abslogdiff = abs(log(price1) - log(price2))
+	gen logdiff = log(price1) - log(price2)
+	gen abslogdiff = abs(logdiff)
+
+* Variance of log diff
+	bys comm1 comm2 year: egen sdlogdiff = sd(logdiff)
 
 compress
 save "../data/estimationdata", replace

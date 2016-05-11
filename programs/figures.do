@@ -65,19 +65,26 @@ graph export "../figures/lines_ts.pdf", as(pdf) replace
 ***************************
 * 3. Create map of railroads
 ***************************
-/* Read in stations
-* tempfile tmp
-*insheet using "../data/cheminsdefer_latlon.csv", comma clear
-*	save `tmp', replace
+tempfile tmp
+insheet using "../data/cheminsdefer_latlon.csv", comma clear
+	save `tmp', replace
 insheet using "../data/cheminsdefer_connections.csv", comma clear
 	gen pairid = _n
+	gen lat3 = .
+	gen lon3 = .
 	reshape long comm lat lon id, i(pair date) j(temp)
+	replace pairid = pairid + 1
+	ren lat _Y
+	ren lon _X
+	ren pairid _ID
 append using "../data/FRA_adm/FRA_adm0b"
 
-tw (area _Y _X, cmissing(n) fcolor(white) nodropbase) ///
-	(scatter lat lon, jitter(1) msize(vsmall) mlabcolor(black)), ///
-	name(simple, replace) ytitle("") legend(off) ylabel(none) xlabel(none) ///
-	yscale(off) xscale(off) graphregion(color(white)) bgcolor(white)
+foreach year in 1845 1850 1855 1860 1865 1870 {
+	tw (area _Y _X if _ID==1, cmissing(n) fcolor(white) lcolor(black) nodropbase) ///
+		(area _Y _X if _ID > 1 & year < `year', cmissing(n) fcolor(white) ///
+			lcolor(black) lpattern(dash) lwidth(0.1) nodropbase), ///
+		name(simple, replace) ytitle("") legend(off) ylabel(none) xlabel(none) ///
+		yscale(off) xscale(off) graphregion(color(white)) bgcolor(white) legend(off)
+	graph export "../figures/railmap`year'.pdf", as(pdf) replace
+}
 
-graph export "../figures/communes_map.pdf", as(pdf) replace
-*/

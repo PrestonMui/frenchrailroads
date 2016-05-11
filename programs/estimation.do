@@ -24,6 +24,14 @@ else{
 
 use "../data/estimationdata", clear
 
+	* Collapse to yearly level
+	collapse (mean) abslogdiff sdlogdiff (min) hasrail hasrail_dist hasrail_logdist ///
+		(max) raildist dist logdist, by(comm1 comm2 comm1group comm2group year)
+
+	reg abslogdiff logdist hasrail hasrail_logdist i.year i.comm1group i.comm2group
+
+	reg sdlogdiff logdist hasrail hasrail_logdist i.year i.comm1group i.comm2group
+
 *********************
 * 1. Regression 1:
 *********************
