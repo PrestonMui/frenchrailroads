@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.7)  9 MAY 2016 00:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.7)  10 MAY 2016 23:26
 entering extended mode
 **"C:/Users/Preston Mui/Dropbox/berkeley/210a/paper/paper.tex"
 ("C:/Users/Preston Mui/Dropbox/berkeley/210a/paper/paper.tex"
@@ -218,35 +218,59 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count103
+)
+("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\capt
+ion.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\capt
+ion3.sty"
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen122
+\captionmargin@=\dimen123
+\captionwidth=\dimen124
+\caption@tempdima=\dimen125
+\caption@indent=\dimen126
+\caption@parindent=\dimen127
+\caption@hangindent=\dimen128
+)
+\c@ContinuedFloat=\count104
+)
+("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subc
+aption.sty"
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count105
+\c@subtable=\count106
 ) (paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 ("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-
 pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen122
+\scratchcounter=\count107
+\scratchdimen=\dimen129
 \scratchbox=\box28
-\nofMPsegments=\count105
-\nofMParguments=\count106
+\nofMPsegments=\count108
+\nofMParguments=\count109
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen123
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen130
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
 \everyMPtoPDFconversion=\toks30
 )
 ("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\p
@@ -331,19 +355,21 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 12.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 13.
 
 ("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ums
 a.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 12.
+LaTeX Font Info:    Try loading font information for U+msb on input line 13.
 
 ("C:\Users\Preston Mui\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ums
 b.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (7.93784pt too wide) in paragraph at lines 17--17
+Overfull \hbox (7.93784pt too wide) in paragraph at lines 18--18
 [][]\OT1/cmr/m/n/10 All data and code for this project is avail-able at https:/
 /github.com/PrestonMui/frenchrailroads.| 
  []
@@ -356,23 +382,101 @@ onfig/pdftex.map}] <figures/communes_map.pdf, id=11, 397.485pt x 289.08pt>
 File: figures/communes_map.pdf Graphic file (type pdf)
 
 <use figures/communes_map.pdf>
-Package pdftex.def Info: figures/communes_map.pdf used on input line 35.
+Package pdftex.def Info: figures/communes_map.pdf used on input line 34.
 (pdftex.def)             Requested size: 397.48402pt x 289.07928pt.
- [2 <./figures/communes_map.pdf>] [3] (paper.bbl
-Underfull \hbox (badness 6461) in paragraph at lines 9--13
+ [2 <./figures/communes_map.pdf>]
+<figures/lines_ts.pdf, id=21, 397.485pt x 289.08pt>
+File: figures/lines_ts.pdf Graphic file (type pdf)
+ <use figures/lines_ts.pdf>
+Package pdftex.def Info: figures/lines_ts.pdf used on input line 50.
+(pdftex.def)             Requested size: 397.48402pt x 289.07928pt.
+
+<figures/railmap1845.pdf, id=22, 397.485pt x 289.08pt>
+File: figures/railmap1845.pdf Graphic file (type pdf)
+
+<use figures/railmap1845.pdf>
+Package pdftex.def Info: figures/railmap1845.pdf used on input line 67.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+
+Overfull \hbox (7.32744pt too wide) in paragraph at lines 67--68
+ [][] 
+ []
+
+<figures/railmap1850.pdf, id=23, 397.485pt x 289.08pt>
+File: figures/railmap1850.pdf Graphic file (type pdf)
+
+<use figures/railmap1850.pdf>
+Package pdftex.def Info: figures/railmap1850.pdf used on input line 72.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+
+Overfull \hbox (7.32744pt too wide) in paragraph at lines 72--73
+ [][] 
+ []
+
+<figures/railmap1855.pdf, id=24, 397.485pt x 289.08pt>
+File: figures/railmap1855.pdf Graphic file (type pdf)
+
+<use figures/railmap1855.pdf>
+Package pdftex.def Info: figures/railmap1855.pdf used on input line 77.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+
+Overfull \hbox (7.32744pt too wide) in paragraph at lines 77--78
+ [][] 
+ []
+
+<figures/railmap1860.pdf, id=25, 397.485pt x 289.08pt>
+File: figures/railmap1860.pdf Graphic file (type pdf)
+
+<use figures/railmap1860.pdf>
+Package pdftex.def Info: figures/railmap1860.pdf used on input line 82.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+
+Overfull \hbox (7.32744pt too wide) in paragraph at lines 82--83
+ [][] 
+ []
+
+<figures/railmap1865.pdf, id=26, 397.485pt x 289.08pt>
+File: figures/railmap1865.pdf Graphic file (type pdf)
+
+<use figures/railmap1865.pdf>
+Package pdftex.def Info: figures/railmap1865.pdf used on input line 87.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+
+Overfull \hbox (7.32744pt too wide) in paragraph at lines 87--88
+ [][] 
+ []
+
+<figures/railmap1870.pdf, id=27, 397.485pt x 289.08pt>
+File: figures/railmap1870.pdf Graphic file (type pdf)
+
+<use figures/railmap1870.pdf>
+Package pdftex.def Info: figures/railmap1870.pdf used on input line 92.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+
+Overfull \hbox (7.32744pt too wide) in paragraph at lines 92--93
+ [][] 
+ []
+
+[3 <./figures/lines_ts.pdf>] [4 <./figures/railmap1845.pdf> <./figures/railmap1
+850.pdf> <./figures/railmap1855.pdf> <./figures/railmap1860.pdf> <./figures/rai
+lmap1865.pdf> <./figures/railmap1870.pdf>] [5] [6] (paper.bbl
+Underfull \hbox (badness 6461) in paragraph at lines 15--19
 []\OT1/cmr/m/n/12 Google De-vel-op-ers.  The google maps geocod-ing api, 2016. 
  URL
  []
 
-) [4] (paper.aux) ) 
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ” in font cmr12!
+) [7] (paper.aux) ) 
 Here is how much of TeX's memory you used:
- 3474 strings out of 493634
- 47862 string characters out of 3132790
- 116166 words of memory out of 3000000
- 6793 multiletter control sequences out of 15000+200000
+ 4632 strings out of 493634
+ 69157 string characters out of 3132790
+ 139133 words of memory out of 3000000
+ 7936 multiletter control sequences out of 15000+200000
  15152 words of font info for 59 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 38i,10n,45p,424b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,10n,45p,424b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Preston Mui/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Preston Mui/
@@ -387,14 +491,13 @@ mr17.pfb><C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr7.pfb><C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Preston Mui/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Preston
- Mui/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-><C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmti10.pfb><C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Preston Mui/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on paper.pdf (4 pages, 501472 bytes).
+ Mui/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti12.pfb><C:/Users/Preston Mui/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on paper.pdf (7 pages, 2488969 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

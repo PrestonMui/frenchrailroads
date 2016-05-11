@@ -1,6 +1,7 @@
 \documentclass[12pt,twoside]{article}
 \usepackage{problemset}
 \usepackage[round]{natbib}
+\usepackage{caption,subcaption}
 \runningheads{Preston Mui}{Did Railroads Integrate Markets? Evidence from 19th Century France}
 
 \title{How much did Railroads Affect Market Integration? Evidence from 19th Century France}
@@ -22,9 +23,7 @@
 
 \section{Data}
 
-% \subsection{Data Sources}
-
-Grain prices, measured in centimes per hectoliter, were collected biweekly by local officials in various French \emph{communes} between 1825 and 1914, and sent to the national government.
+rain prices, measured in centimes per hectoliter, were collected biweekly by local officials in various French \emph{communes} between 1825 and 1914, and sent to the national government.
 These data now reside at the French National Archives, and the price data from 53 \emph{communes} are publicly available from \cite{prices}.\footnote{Some \emph{communes} were eliminated by \cite{prices} due to imprecise or incomplete data.}
 The sample of \emph{communes} from \cite{prices} cover nearly all geographic areas of France, with the exception of Alsace-Lorraine near the border of Luxembourg.
 In general, the sample tends to include larger cities and port cities, as well as Northern cities due to higher wheat production in the North.
@@ -42,37 +41,94 @@ In general, the sample tends to include larger cities and port cities, as well a
 % Railroad openings data
 I obtain information on railroad openings from \cite{palau2,palau3,palau4}, who uses primary sources from the Musee Francais du Chemin de Fer (The French Train Museum), SNCF archives, and \emph{Annales de Mines}, a French technical mining journal from the 1800s.
 These sources contain information on every railroad opening in France between 1828 and 1870, including the location of the two endpoints, the day the route was opened, and the distance of the route.
+Overall, there were 435 rail lines opened in France between 1828 and 1870.
+Figure \ref{fig:lines_year} shows the number and total distances of railroad lines opened in each year during the sample.
 To get geographical distance information, I feed both the \emph{communes} from the grain price data and the rail stations into the Google Maps Geocoding API \citep{google} for latitudinal and longitudinal coordinates, and apply the haversine formula to calculate as-the-crow-flies distance between each pair of rail stations and \emph{communes}.
 
-% How many rail connections
-% I throw out the ones going to Belgium and Germany and Lux
-% How many total kilometers
-% Graph on the number of kilometers and the number of rail openings
-% On average, the distance between rail openigns is X kilometers
+\begin{figure}[h]
+	\centering
+	\includegraphics{figures/lines_ts.pdf}
+	\caption{Location of \emph{communes} in price data \citep{prices}.}
+	\label{fig:lines_year}
+\end{figure}
+
+From 1828 to 1870, there were a total of 410 routes opened, with a total cumulative distance of 15,445 kilometers\footnote{Distances are as-the-crow flies, not actual distances accounting for curves.}.
+The average route was 30 kilometers long, with the largest being the 203 kilometer Paris-Lille line, which opened in June 1846.
+Figure \ref{fig:rail_openings} shows the evolution of rails across the country.
+Each map shows the railroads opened by the end of the year listed.
+% As you can see.... Paris...
+
+% Figure with rail openings
+\begin{figure}[p]
+	\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\caption{1845. 27 routes, 1,104 km.}
+		\includegraphics[scale=.5]{figures/railmap1845.pdf}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\caption{1850. 71 routes, 2,937 km.}
+		\includegraphics[scale=.5]{figures/railmap1850.pdf}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\caption{1855. 114 routes, 5,296 km.}
+		\includegraphics[scale=.5]{figures/railmap1855.pdf}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\caption{1860. 207 routes, 8,849 km.}
+		\includegraphics[scale=.5]{figures/railmap1860.pdf}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\caption{1865. 302 routes, 12,240 km.}
+		\includegraphics[scale=.5]{figures/railmap1865.pdf}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\caption{1870. 410 routes, 15,445 km.}
+		\includegraphics[scale=.5]{figures/railmap1870.pdf}
+	\end{subfigure}
+	\caption{Railroads open at year-end. Endpoints of lines are stations, but the actual lines are simply as-the-crow-flies lines between stations, not actual rail routes.}
+	\label{fig:rail_openings}
+\end{figure}
 
 Some matching betweeen the rail openings data and the grain data is required, as our interest is of rail connections between price locations, not rail stations.
 To this end, at any particular point in time during the sample period, I consider two rail stations to be connected if they are connected in a graph with rail stations as vertices and railroads as edges.
-Then, I consider two \emph{communes} to be ``connected'' by railroads at a particular point in time if any rail station within 25 kilometers of the first \emph{commune} is connected to any rail station within 25 kilometers of the second \emph{commune}.
+Then, I consider two \emph{communes} to be ``connected'' by railroads at a particular point in time if any rail station within 40 kilometers of the first \emph{commune} is connected to any rail station within 25 kilometers of the second \emph{commune}.
 I assume that connections are symmetric in the sense that connections are unaffected by the direction of travel; that is, the statement ``Soissons is connected to Albi'' is equivalent to ``Albi is connected to Soissons.''
-By 1870, all but four \emph{communes} are associated with some rail station by this metric. %\footnote{Which ones?}
 
-% \subsection{Data Description}
-% Construction
-	% Map
+By 1870, 41 out of 53 \emph{communes} in the grain price data are associated with some rail station by this metric.\footnote{The \emph{communes} that are not associated with a rail station are Albi, Annecy, Arras, Bayeux, Blois, Carcassonne, Dieppe, Digne, Macon, Peyrehorade, Pontlabbe, Vannes}
 	
-\section{Estimation strategy}
-Denoting $p_t = (p_{1t},\cdots,p_{Nt})^{\prime}$ as the vector of logged grain prices at $N$ communes at time $t$. Considering a VAR with $L$ lags:
+\section{Estimation}
 
-\begin{align*}
-	p_t &= v + \sum_{l=1}^L A_l y_{t-l} + \epsilon_t
-\end{align*}
-This model can be rewritten in the form of a vector error-correction model:
-\begin{align*}
-	\Delta p_t &= v + \Pi p_{t-1} + \sum_{l=1}^{L-1} \Gamma_l \Delta y_{t-l}  + \epsilon_t
-\end{align*}
+Ideally, one would like to would like to estimate something similar to a vector error-correction model, as in \cite{johansen}.
+This model would estimate equilibrium multilateral relationships between price series in multiple cities and the the speed at which the time series converge to this equilibrium.
+However, using this approach is somewhat unworkable with fifty-three price series, because the number of observations (across time) required to estimate this model would make it difficult to link changes in the relationship between price series to the introduction of railroads.
+Furthermore, the complexity of this model would make it difficult to interpret the estimated coefficients of this model.
 
-\section{Results}
+Instead, I resort to the following method which allows for some identification of the effects of railroads, although it is less precise about the nature of the relationship between the price series.
+Let $P_{i,j,t}$ be the average log difference of grain prices in \emph{communes} $i$ and $j$  in year $t$. I estimate the following regression:
+\begin{align}
+	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + + \beta_R R_{i,j,t} + \beta_{Rd} (R_{i,j,t} \times d_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \epsilon_{i,j,t} \label{eq:reg1}
+\end{align}
+where $d_{i,j}$ is the log distance between \emph{communes} $i$, $j$; $R_{i,j,t}$ is a dummy equal to one if $i$ and $j$ are connected by railroads, as defined above, and $C_k$ is a dummy equal to 1 if commune $k$ is one of the communes in the pairwise observation.
+I also include (but omit above for space) year fixed effects.
+This regression takes the form of a difference-in-difference regression, with the existence of a rail connection as the treatment.
+% Like a diff in diff
+% I omit the non-interacted $R_{i,j,t}$ variable so that a rail connection between two \emph{communes} very close to each other has no effect on price dispersion. 
 
+I present results from \eqref{eq:reg1} in %table
+% Discussion of results
+% Different variations and versions
+
+% Variation
+Another way to measure deviations from the law of one price is to examine price volatility.
+To this end, I follow \cite{engelrogers} and regress, at an annual level, the volatility (as measured by the standard deviation) of $P_{i,j,t}$ on the same set of regressors as \eqref{eq:reg1}.
+
+% Endogeneity issues
 \section{Conclusion}
 
 \newpage
