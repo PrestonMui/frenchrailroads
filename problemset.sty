@@ -1,0 +1,26 @@
+% Stylesheet for LaTeX Problem Sets
+% Preston Mui
+
+%% Packages
+\special{papersize=8.5in,11in}
+\usepackage{enumerate,amsfonts,graphicx,amsthm,amssymb,fancyhdr}
+\usepackage[mathscr]{euscript}
+\usepackage[fleqn]{amsmath}
+\usepackage[hmargin=1in,vmargin=1in]{geometry}
+
+%% Margin, Paragraph Setup
+% \onehalfspacing
+\textheight=21.5cm \textwidth=14.95cm \topmargin=-5.5mm
+\oddsidemargin=8mm \evensidemargin=8mm
+\setlength{\parskip}{0pt}
+% This is how to control linespacing using setspace
+% \setstretch{1.4}
+
+%% Page Headers
+\pagestyle{fancy}
+% \renewcommand{\headrulewidth}{0pt}
+\newcommand{\runningheads}[2]{
+	\lhead{\footnotesize #1}
+	\chead{\footnotesize #2}
+	\rhead{\footnotesize Page \thepage}
+}
