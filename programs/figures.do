@@ -88,3 +88,17 @@ foreach year in 1845 1850 1855 1860 1865 1870 {
 	graph export "../figures/railmap`year'.pdf", as(pdf) replace
 }
 
+***************************
+* 4. Graph of Fixed Effects
+***************************
+use "../data/fixed_effects", clear
+	
+	la var abslogdiff_fe1 "Abs. Log Difference"
+	la var sdlogdiff_fe1 "Std. Dev. Log Difference"
+	
+	graph twoway line abslogdiff_fe1 year, lcolor(black) ///
+		|| line sdlogdiff_fe1 year, lcolor(black) lpattern(dash) ///
+		xtitle("Year") ytitle("Fixed Effect") title("Year Fixed Effects") ///
+		graphregion(color(white)) bgcolor(white)
+
+graph export "../figures/fixed_effects.pdf", as(pdf) replace
