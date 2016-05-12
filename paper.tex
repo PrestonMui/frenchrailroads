@@ -21,18 +21,21 @@
 \newpage
 \section{Introduction}
 
+
+\section{History of rail openings in }
+
 \section{Data}
 
-rain prices, measured in centimes per hectoliter, were collected biweekly by local officials in various French \emph{commune} between 1825 and 1914, and sent to the national government.
-These data now reside at the French National Archives, and the price data from 53 \emph{commune} are publicly available from \cite{prices}.\footnote{Some \emph{commune} were eliminated by \cite{prices} due to imprecise or incomplete data.}
-The sample of \emph{commune} from \cite{prices} cover nearly all geographic areas of France, with the exception of Alsace-Lorraine near the border of Luxembourg.
+rain prices, measured in centimes per hectoliter, were collected biweekly by local officials in various French \emph{communes} between 1825 and 1914, and sent to the national government.
+These data now reside at the French National Archives, and the price data from 53 \emph{communes} are publicly available from \cite{prices}.\footnote{Some \emph{communes} were eliminated by \cite{prices} due to imprecise or incomplete data.}
+The sample of \emph{communes} from \cite{prices} cover nearly all geographic areas of France, with the exception of Alsace-Lorraine near the border of Luxembourg.
 In general, the sample tends to include larger cities and port cities, as well as Northern cities due to higher wheat production in the North.
-\ref{fig:communes_map} shows the location of the \emph{commune} comprising the price data.
+Figure~\ref{fig:communes_map} shows the location of the \emph{communes} comprising the price data.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics{figures/communes_map.pdf}
 	\caption{Location of \emph{commune} in price data \citep{prices}.}
+	\includegraphics{figures/communes_map.pdf}
 	\label{fig:communes_map}
 \end{figure}
 
@@ -42,19 +45,19 @@ In general, the sample tends to include larger cities and port cities, as well a
 I obtain information on railroad openings from \cite{palau2,palau3,palau4}, who uses primary sources from the Musee Francais du Chemin de Fer (The French Train Museum), SNCF archives, and \emph{Annales de Mines}, a French technical mining journal from the 1800s.
 These sources contain information on every railroad opening in France between 1828 and 1870, including the location of the two endpoints, the day the route was opened, and the distance of the route.
 Overall, there were 435 rail lines opened in France between 1828 and 1870.
-Figure \ref{fig:lines_year} shows the number and total distances of railroad lines opened in each year during the sample.
-To get geographical distance information, I feed both the \emph{commune} from the grain price data and the rail stations into the Google Maps Geocoding API \citep{google} for latitudinal and longitudinal coordinates, and apply the haversine formula to calculate as-the-crow-flies distance between each pair of rail stations and \emph{commune}.
+Figure~\ref{fig:lines_year} shows the number and total distances of railroad lines opened in each year during the sample.
+To get geographical distance information, I feed both the \emph{communes} from the grain price data and the rail stations into the Google Maps Geocoding API \citep{google} for latitudinal and longitudinal coordinates, and apply the haversine formula to calculate as-the-crow-flies distance between each pair of rail stations and \emph{communes}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics{figures/lines_ts.pdf}
 	\caption{Rail openings over time, France, 1825 - 1870 \citep{prices}.}
+	\includegraphics{figures/lines_ts.pdf}
 	\label{fig:lines_year}
 \end{figure}
 
 From 1828 to 1870, there were a total of 410 routes opened, with a total cumulative distance of 15,445 kilometers\footnote{Distances are as-the-crow flies, not actual distances accounting for curves.}.
 The average route was 30 kilometers long, with the largest being the 203 kilometer Paris-Lille line, which opened in June 1846.
-Figure \ref{fig:rail_openings} shows the evolution of rails across the country.
+Figure~\ref{fig:rail_openings} shows the evolution of rails across the country.
 Each map shows the railroads opened by the end of the year listed.
 % As you can see.... Paris...
 
@@ -97,29 +100,39 @@ Each map shows the railroads opened by the end of the year listed.
 
 Some matching betweeen the rail openings data and the grain data is required, as our interest is of rail connections between price locations, not rail stations.
 To this end, at any particular point in time during the sample period, I consider two rail stations to be connected if they are connected in a graph with rail stations as vertices and railroads as edges.
-Then, I consider two \emph{commune} to be ``connected'' by railroads at a particular point in time if any rail station within 40 kilometers of the first \emph{commune} is connected to any rail station within 25 kilometers of the second \emph{commune}.
+Then, I consider two \emph{communes} to be ``connected'' by railroads at a particular point in time if any rail station within 40 kilometers of the first \emph{commune} is connected to any rail station within 25 kilometers of the second \emph{commune}.
 I assume that connections are symmetric in the sense that connections are unaffected by the direction of travel; that is, the statement ``Soissons is connected to Albi'' is equivalent to ``Albi is connected to Soissons.''
 
-By 1870, 41 out of 53 \emph{commune} in the grain price data are associated with some rail station by this metric.\footnote{The \emph{commune} that are not associated with a rail station are Albi, Annecy, Arras, Bayeux, Blois, Carcassonne, Dieppe, Digne, Macon, Peyrehorade, Pontlabbe, Vannes}
+By 1870, 41 out of 53 \emph{communes} in the grain price data are associated with some rail station by this metric.\footnote{The \emph{commune} that are not associated with a rail station are Albi, Annecy, Arras, Bayeux, Blois, Carcassonne, Dieppe, Digne, Macon, Peyrehorade, Pontlabbe, Vannes}
 	
 \section{Estimation}
 
-Ideally, one would like to would like to estimate something similar to a vector error-correction model, as in \cite{johansen}.
+Ideally, one would like to would like to estimate something similar to a vector error-correction model (VECM), as in \cite{johansen}.
 This model would estimate equilibrium multilateral relationships between price series in multiple cities and the the speed at which the time series converge to this equilibrium.
 However, using this approach is somewhat unworkable with fifty-three price series, because the number of observations (across time) required to estimate this model would make it difficult to link changes in the relationship between price series to the introduction of railroads.
 Furthermore, the complexity of this model would make it difficult to interpret the estimated coefficients of this model.
 
-Instead, I take the simpler approach of examining the effect of rail connections on price differentials and the volatility of price differentials between \emph{communes}.
+Instead, I take the simpler approach of examining the effect of rail connections on both the magnitude and volatility of price differentials between \emph{communes}.
+To examine the magnitude of price differentials, I construct $P_{i,j,t}$ as the mean of the absolute value of differences in logged prices in \emph{communes} $i$ and $j$ in year $t$.
+I measure the volatility of the price differential, $V_{i,j,t}$, as the standard deviation of differences in logged prices.
+Although this is less precise than estimating the dynamic relationship between price series in a VECM, linking changes in these variables to rail connections is much easier.
+I plot the annual averages, across all \emph{commune} pairs, of $P_{i,j,t}$ and $V_{i,j,t}$ in Figure~\ref{fig:tsdifferentials}.
+Price dispersion, as measured by absolute price differentials, fell over the sample period from 2.5\% to 1\%.
+The volatility of price differentials appears to have fallen over time as well (I estimate a coefficient of -0.0006 on year on a best-fit line, significant at the 1\% level), but the pattern is much less pronounced than the fall in absolute differentials.
 
-I examine the effect of rail connections between \emph{communes} on two bilatera
-Instead, I resort to the following method which allows for some identification of the effects of railroads, although it is less precise about the nature of the relationship between the price series.
+\begin{figure}[ht]
+	\caption{Price Dispersion over Time}
+	\includegraphics{figures/tsdispersion.pdf}
+	\label{fig:tsdifferentials}
+\end{figure}
 
-Let $P_{i,j,t}$ be the average log difference of grain prices in \emph{commune} $i$ and $j$  in year $t$. I estimate the following regression:
+I begin by estimating the following regression:
 \begin{align}
-	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + + \beta_R R_{i,j,t} + \beta_{Rd} (R_{i,j,t} \times d_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \epsilon_{i,j,t} \label{eq:reg1}
+	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + \beta_R R_{i,j,t} + \beta_{Rd} (R_{i,j,t} \times d_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \sum_{s=1}^{T} \eta_s Y_s + \epsilon_{i,j,t} \label{eq:reg1}
 \end{align}
-where $d_{i,j}$ is the log distance between \emph{commune} $i$, $j$; $R_{i,j,t}$ is a dummy equal to one if $i$ and $j$ are connected by railroads, as defined above, and $C_k$ is a dummy equal to 1 if \emph{commune} $k$ is one of the \emph{communes} in the pairwise observation.
-I also include (but omit above for space) year fixed effects.
+where $d_{i,j}$ is the log distance between \emph{commune} $i$, $j$; $R_{i,j,t}$ is a dummy equal to one if $i$ and $j$ are connected by railroads, as defined above.
+$C_k$ is a dummy equal to 1 if \emph{commune} $k$ is one of the \emph{communes} in the pairwise observation (so each \emph{commune} pair has two instances of $C_k$ equal to one), and the $Y_s$ terms are year fixed-effects.
+% Why the fixed effects
 This regression takes the form of a difference-in-difference regression, with the existence of a rail connection as the treatment, and the with the effect of a rail connection varying by distance between the \emph{communes}.
 
 I present results from \eqref{eq:reg1} in Column 1 of Table~\ref{tab:reg1}.
@@ -128,46 +141,79 @@ What is less expected is the significant positive coefficient on the rail dummy,
 However, the significant and negative coefficient on the interaction of the rail dummy and log distance suggests that the presence of railroads attenuated the effects of distance on price dispersion.
 Because the distance between \emph{commune} is generally fairly large, the combination of the rail dummy and its interaction with log distance implies that railroads lowered price dispersion for \emph{commune} pairs that were at least 140 kilometers apart, which accounts for over 85\% of the \emph{commune} pairs for which there was a rail connection at the end of the sample.
 
+\begin{landscape}
+	\include{figures/abslogdiffreg}
+\end{landscape}
+
 One possible explanation of this result is that rail might not significantly reduce trade costs between \emph{commune} that are very close to each other, and have no effect on price dispersion.
 With this in mind, I estimate the following specification:
 \begin{align}
-	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + \beta_{\tilde{R}} \tilde{R}_{i,j,t} + \beta_{\tilde{R}\tilde{d}} (\tilde{R}_{i,j,t} \times \tilde{d}_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \epsilon_{i,j,t} \label{eq:reg2}
+	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + \beta_{\tilde{R}} \tilde{R}_{i,j,t} + \beta_{\tilde{R}\tilde{d}} (\tilde{R}_{i,j,t} \times \tilde{d}_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \sum_{s=1}^{T} \eta_s Y_s + \epsilon_{i,j,t} \label{eq:reg2}
 \end{align}
 where $\tilde{d_{i,j}} = \max\{ \log( d_{i,j} ) - \log( d_{min} ), 0 \}$ for some minimum distance $d_{min}$.
 This specification constrains the effect of rail connections on price dispersion to be zero when the \emph{communes} are closer than $d_{min}$ kilometers, attenuating the effects of distance thereafter.
 I present the estimates of \eqref{eq:reg2} using $d_{min} = 100, 150$, and $200$ kilometers in columns (2) - (4) in Table~\ref{tab:reg1}.
 
-How much did rails matter for lowering price dispersion between \emph{communes}?
-A back-of-the-envelope comparison of the estimates of $\beta_{\tilde{R}}$ and $\beta_d$ in columns (2) - (4) of Table~\ref{tab:reg1} implies that the presence of a rail connection attenuated the marginal effect of (logged) distance on price dispersion beyond the ``threshold'' distances of 100, 150, and 200 kilometers by 62\%, 58\%, and 42\%, respectively.
-By the end of the sample period, the average distance between commune pairs for which there was a rail connection was 345 kilometers.
-The estimated average effect of a rail connection on this ``average'' commune was to reduce the total effect of distance on price dispersion by between 49\% and 56\%, depending on the threshold distance used.
-
-\begin{landscape}
-	\include{figures/abslogdiffreg}
-\end{landscape}
-
-Another way to measure deviations from the law of one price is to examine the volatility of the price differential between \emph{communes}.
-Following \cite{engelrogers}, I regress, the annual volatility (as measured by the standard deviation) of the logged price differences on the same set of regressors as in \eqref{eq:reg1} and \eqref{eq:reg2}.
-I present results from this regression in Table~\ref{tab:reg2}.
-
-As with the results on absolute differential, rail connections attenuate the effect of distance on price differential volatility.
-Comparing the estimates of the coefficients on log distance and the interaction between the rail dummy and log distance, the presence of a rail connection reduces the marginal effect of distance (beyond the distance threshold) by 20\% to 30\%, depending on the treshhold used.
-Again considering a hypothetical ``average'' commune pair separated by 345 kilometers, the total estimated effect of a railroad is to attenuate the total effect of distance on volatility by between 24\% and 29\%.
+I present results from estimating \eqref{eq:reg1} and \eqref{eq:reg2} with $V_{i,j,t}$ as the dependent variable are presented in Table~\ref{tab:reg2}.
+As with the results on absolute differential, the coefficients on the rail dummy interactions with the distance variables are significant and negative, suggesting that railroads attenuated the effects of distance on price dispersion.
+Again considering a hypothetical ``average'' commune pair separated by 345 kilometers, the total estimated effect of a railroad is to attenuate the total effect of distance on volatility by between 4.6\% and 5.6\%.
+For the most-distant \emph{commune} pair (Pont-l'Abbe and Digne), the attenuation is between 7.7\% and 8.7\%.
 
 \begin{landscape}
 	\include{figures/sdlogdiffreg}
 \end{landscape}
 
-% However, these are estimates of the effect of rail relative to the effect of distance.
-% Another important comparison is the relative effect of rail relative to total price dispersion and volatility, in general.
+Although the results are statistically significant, are they economically significant?
+To answer this, I consider the effects of rail presence on two hypothetical \emph{commune} pairs, one separated by 350 kilometers, and the other separated by 900 kilometers.
+I chose these values because 350 kilometers was approximately the mean distance of rail-connected \emph{communes} at the end of the sample period, and 900 kilometers is the maximal distance of any two rail-connected communes (Pont l'Abbe, in the Northwest, and Digne, in the Southeast).
+Then, using the estimated coefficients from the preceding regressions, I calculate an estimated ``treatment effect'' for these two hypothetical \emph{communes}, and present the values in Table~\ref{tab:treatment1}.
 
+\begin{table}[ht]
+	\caption{Implied rail effects on hypothetical \emph{communes}: price differentials} \label{tab:treatment1}
+	\begin{tabular}{ |c|c|c|c|c| }
+		\hline & \multicolumn{2}{c|}{``Average'' \emph{Commune}} & \multicolumn{2}{c|}{``Maximal'' \emph{Commune}} \\ \hline
+		Specification & Change in $P_{i,j,t}$ & \shortstack{Attenuation of \\ Distance Effect} & Change in $P_{i,j,t}$ & \shortstack{Attenuation of \\ Distance Effect} \\ \hline
+		Baseline & -.0014266 & 6.4\% & -.0029599 & 11.3\% \\
+		$d_{min} = 100$ & -.001412 & 6.6\% & -.0036037 & 14.4\% \\
+		$d_{min} = 150$ & -.0015041 & 7.0\% & -.0035527 & 14.3\% \\
+		$d_{min} = 200$ & -.0016673 & 7.8\% & -.0032794 & 13.2\% \\ \hline
+	\end{tabular}
+\end{table}
 
-% Stuff on the fixed effects
+This back-of-the-envelope suggests the effect, though statistically significant, is small.
+The implied estimated effect of a rail connection on the ``average'' \emph{commune} pair was to reduce the mean logged price difference by between 0.14\% and 0.016\%, depending on the specification used.
+To understand the economic significance of this reduction, I compare this effect to the implied effect of distance ($\beta_d * d_{i,j}$) on price dispersion to calculate the amount of price dispersion caused by distance that is ``attenuated'' by the rail connection.
+For this ``average'' commune, the effect is between 6.4\% and 7.8\%, depending on the specification used.
+Even for the two rail-connected \emph{communes} furthest apart (Pont-l'Abbe, in the Northwest, and Digne, in the Southeast, were 900 kilometers apart), the estimated attenuation effect was less than 15\% across all specifications.
+
+The results for price differential volatility are similar.
+I calculate the implied effects of rail connections on the same hypothetical \emph{commune} pairs and present the results in Table~\ref{tab:treatment2}.
+As with the results on absolute levels of price dispersion, the presence of a rail connection between the hypothetical \emph{communes} only attenuates a small fraction of the distance effect on price difference volatility.
+This result holds across the different specifications for both the ``average'' and ``maximal'' hypothetical \emph{commune}.
+
+\begin{table}[ht]
+	\centering \caption{Implied rail effects on hypothetical \emph{communes}: price differential volatility} \label{tab:treatment2}
+	\begin{tabular}{ |c|c|c|c|c| }
+		\hline & \multicolumn{2}{c|}{``Average'' \emph{Commune}} & \multicolumn{2}{c|}{``Maximal'' \emph{Commune}} \\ \hline
+		Specification & Change in $P_{i,j,t}$ & \shortstack{Attenuation of \\ Distance Effect} & Change in $P_{i,j,t}$ & \shortstack{Attenuation of \\ Distance Effect} \\ \hline
+		Baseline & -.0006081 & 4.8\% & -.0012883 & 8.6\% \\
+		$d_{min} = 100$ & -.0006587 & 5.3\% & -.0012531 & 8.7\% \\
+		$d_{min} = 150$ & -.0006983 & 5.7\% & -.0011596 & 8.1\% \\
+		$d_{min} = 200$ & -.0006931 & 5.6\% & -.0011092 & 7.7\% \\ \hline
+	\end{tabular}
+\end{table}
+
+Another way to assess the importance of rails on price dispersion during this period is to compare the magnitude of the effects of rail connections to overall falls in price dispersion during the sample period.
+In Figure~\ref{fig:fixed_effects}, I plot the year fixed-effects from the baseline regression in \eqref{eq:reg1}, normalized to the 1825 fixed effect equal to 0.\footnote{The year fixed-effects are virtually identical across specifications}
+As is apparent, the magnitude of the rail connection effect is dwarfed by the change in year fixed-effects over the sample period.
+One interpretation of this comparison is that while rail connections may have decreased price dispersion across distant \emph{communes}, transportation and market changes over time that affected all \emph{communes}, regardless of rail connections, were much more important.
+
 \begin{figure}[ht]
+	\centering
+	\caption{Year fixed-effects, normalized to $\gamma_{1825} = 0$}
 	\includegraphics{figures/fixed_effects.pdf}
-	\label{fig:fixedeffects}
+	\label{fig:fixed_effects}
 \end{figure}
-
 
 % Endogeneity issues
 \section{Conclusion}

@@ -185,9 +185,6 @@ INPUT figures/abslogdiffreg.tex
 OUTPUT figures/sdlogdiffreg.aux
 INPUT figures/sdlogdiffreg.tex
 INPUT figures/sdlogdiffreg.tex
-INPUT figures/fixed_effects.pdf
-INPUT ./figures/fixed_effects.pdf
-INPUT ./figures/fixed_effects.pdf
 INPUT paper.bbl
 INPUT paper.bbl
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
