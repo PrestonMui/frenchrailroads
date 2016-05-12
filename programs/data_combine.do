@@ -102,8 +102,9 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	gen dlon = lon2 - lon1
 	gen dlat = lat2 - lat1
 	gen a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 
-	gen dist = 6371 * 2 * atan2( sqrt(a), sqrt(1-a) ) 
+	gen dist = 6371 * 2 * atan2( sqrt(a), sqrt(1-a) )
 	gen logdist = log(dist)
+	gen dist2 = dist^2
 
 	drop lat* lon* dlon dlat a
 
@@ -116,7 +117,16 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 	merge 1:1 tweek comm1 comm2 using "temp/commune_connections", nogen
 	gen hasrail = !missing(raildist)
 	gen hasrail_dist = hasrail * dist
+	gen hasrail_dist2 = hasrail * dist2
 	gen hasrail_logdist = hasrail * logdist
+
+	* "Threshold" Distances
+	foreach d in 50 100 150 200 {
+		gen logdistm`d' = log(dist) - log(`d')
+		replace logdistm`d' = 0 if logdistm`d' < 0
+		gen hasrail_logdistm`d' = hasrail * logdistm`d'
+		gen hasrail_dummy_logdistm`d' = hasrail_logdistm`d' > 0
+	}
 
 	* Fixed effects
 	egen comm1group = group(comm1)
@@ -132,6 +142,24 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 
 * Variance of log diff
 	bys comm1 comm2 year: egen sdlogdiff = sd(logdiff)
+
+* Collapse to yearly level
+	collapse (mean) abslogdiff sdlogdiff ///
+		(min) hasrail hasrail_dist hasrail_dist2 hasrail_logdist logdistm* hasrail_logdistm* hasrail_dummy_logdistm* ///
+		(max) raildist dist dist2 logdist, by(comm1 comm2 comm1group comm2group year)
+
+* Label variables
+	la var logdist "Log Dist. (km)"
+	la var hasrail "Rail Dummy"
+	la var hasrail_logdist "Rail Dummy x Log Dist. (km)"
+	la var hasrail_dist "Rail Dummy x Dist. (km)"
+	la var hasrail_dist2 "Rail Dummy x Dist. Squared (km)"
+	foreach d in 50 100 140 150 200 {
+		la var logdistm`d' "Log (Dist. - Dmin)"
+		la var hasrail_logdistm`d' "Rail Dummy x Log (Dist. - Dmin)"
+		la var hasrail_dummy_logdistm`d' "Rail Dummy x (Dist > Dmin)"
+	}
+
 
 compress
 save "../data/estimationdata", replace
