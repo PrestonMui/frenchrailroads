@@ -28,6 +28,7 @@ use "../data/estimationdata", clear
 	* Absolute log difference equations
 	eststo: reg abslogdiff logdist hasrail hasrail_logdist i.year i.comm1group i.comm2group, robust
 		mat temp = e(b)'
+		mat abslogdiff_b1 = temp["logdist".."hasrail_logdist","y1"]
 		mat abslogdiff_fe1 = temp["1825b.year".."1870.year","y1"]
 	* eststo: reg abslogdiff logdist i.year i.comm1group i.comm2group
 	foreach d in 100 150 200 {
@@ -36,8 +37,9 @@ use "../data/estimationdata", clear
 		ren hasrail_dummy_logdistm`d' hasrail_dummy_logdistm
 
 		eststo: reg abslogdiff logdist hasrail_dummy_logdistm hasrail_logdistm i.year i.comm1group i.comm2group, robust
-		mat temp = e(b)'
-		mat abslogdiff_fe`d' = temp["1825b.year".."1870.year","y1"]
+			mat temp = e(b)'
+			mat abslogdiff_b`d' = temp["logdist".."hasrail_logdistm","y1"]
+			mat abslogdiff_fe`d' = temp["1825b.year".."1870.year","y1"]
 		
 		ren logdistm logdistm`d'
 		ren hasrail_logdistm hasrail_logdistm`d'
@@ -51,7 +53,7 @@ use "../data/estimationdata", clear
 		cells(b(fmt(5) star) se(fmt(5) par)) ///
 		keep(logdist hasrail hasrail_dummy_logdistm hasrail_logdist logdist hasrail_logdistm _cons) ///
 		booktabs collabels(none) ///
-		mtitle("" "\shortstack{Min Dist\\100KM}" "\shortstack{Min Dist\\150KM}" "\shortstack{Min Dist\\200KM}") ///
+		mtitle("Baseline" "\shortstack{Min Dist\\100KM}" "\shortstack{Min Dist\\150KM}" "\shortstack{Min Dist\\200KM}") ///
 		title(Dependent Variable: Average Absolute Log Price Difference\label{tab:reg1}) ///
 		note("All regressions use Year and Commune Fixed Effects")
 
@@ -61,6 +63,7 @@ use "../data/estimationdata", clear
 	* Variance regressions
 	eststo: reg sdlogdiff logdist hasrail hasrail_logdist i.year i.comm1group i.comm2group, robust
 		mat temp = e(b)'
+		mat sdlogdiff_b1 = temp["logdist".."hasrail_logdist","y1"]
 		mat sdlogdiff_fe1 = temp["1825b.year".."1870.year","y1"]
 	* eststo: reg sdlogdiff logdist i.year i.comm1group i.comm2group, robust
 	foreach d in 100 150 200 {
@@ -69,8 +72,9 @@ use "../data/estimationdata", clear
 		ren hasrail_dummy_logdistm`d' hasrail_dummy_logdistm
 
 		eststo: reg sdlogdiff logdist hasrail_dummy_logdistm hasrail_logdistm i.year i.comm1group i.comm2group, robust
-		mat temp = e(b)'
-		mat sdlogdiff_fe`d' = temp["1825b.year".."1870.year","y1"]
+			mat temp = e(b)'
+			mat sdlogdiff_b`d' = temp["logdist".."hasrail_logdistm","y1"]
+			mat sdlogdiff_fe`d' = temp["1825b.year".."1870.year","y1"]
 		
 		ren logdistm logdistm`d'
 		ren hasrail_logdistm hasrail_logdistm`d'
@@ -84,7 +88,7 @@ use "../data/estimationdata", clear
 		cells(b(fmt(5) star) se(fmt(5) par)) ///
 		keep(logdist hasrail hasrail_logdist logdist hasrail_dummy_logdistm hasrail_logdistm _cons) ///
 		booktabs collabels(none) ///
-		mtitle("" "\shortstack{Min Dist\\100KM}" "\shortstack{Min Dist\\150KM}" "\shortstack{Min Dist\\200KM}") ///
+		mtitle("Baseline" "\shortstack{Min Dist\\100KM}" "\shortstack{Min Dist\\150KM}" "\shortstack{Min Dist\\200KM}") ///
 		title(Dependent Variable: Std. Deviation of Absolute Log Price Difference\label{tab:reg2}) ///
 		note("All regressions use Year and Commune Fixed Effects")
 
@@ -103,6 +107,15 @@ use "../data/estimationdata", clear
 		svmat sdlogdiff_fe200
 		save "../data/fixed_effects", replace
 	restore
+
+	* Coefficients
+		clear
+		foreach thing in abs sd {
+			foreach n in 1 100 150 200 {
+				svmat `thing'logdiff_b`n'
+			}
+		}
+		save "../data/coefficients", replace
 
 
 *********************

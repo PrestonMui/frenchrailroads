@@ -93,12 +93,58 @@ foreach year in 1845 1850 1855 1860 1865 1870 {
 ***************************
 use "../data/fixed_effects", clear
 	
-	la var abslogdiff_fe1 "Abs. Log Difference"
-	la var sdlogdiff_fe1 "Std. Dev. Log Difference"
+	la var abslogdiff_fe11 "Abs. Log Difference"
+	la var sdlogdiff_fe11 "Std. Dev. Log Difference"
+
+	* Compare to "Average" effect
+	gen absavgtreat = -0.0014266
+	gen sdavgtreat = -0.0006081
+	la var absavgtreat "Implied Effect on Avg. Commune Pair (Level)"
+	la var sdavgtreat "Implied Effect on Avg. Commune Pair (Volatility)"
 	
-	graph twoway line abslogdiff_fe1 year, lcolor(black) ///
-		|| line sdlogdiff_fe1 year, lcolor(black) lpattern(dash) ///
+	graph twoway line abslogdiff_fe11 year, lcolor(black) ///
+		|| line absavgtreat year, lcolor(gs10) ///
+		|| line sdlogdiff_fe11 year, lcolor(black) lpattern(dash) ///
+		|| line sdavgtreat year, lcolor(gs10) lpattern(dash) ///
 		xtitle("Year") ytitle("Fixed Effect") title("Year Fixed Effects") ///
 		graphregion(color(white)) bgcolor(white)
 
 graph export "../figures/fixed_effects.pdf", as(pdf) replace
+
+***************************
+* 4. Time Series of volatility and log price differentials
+***************************
+
+use "../data/estimationdata", clear
+
+	collapse (mean) abslogdiff sdlogdiff, by (year)
+	la var abslogdiff "Mean Absolute Difference"
+	la var sdlogdiff "Std. Dev. of Difference"
+	sort year
+
+	graph twoway line abslogdiff year, scheme(s1mono) yaxis(1) ylabel(0(0.005)0.03) yscale(range(0 0.03) axis(1)) lcolor(black) ///
+		ytitle("Mean Absolute Difference in Log Prices") graphregion(color(white)) bgcolor(white) ///
+	|| line sdlogdiff year, yaxis(2) yscale(range(0 0.015) axis(2)) ylabel(0(0.003)0.015, axis(2)) lpattern(dash) lcolor(black) ///
+		ytitle("Std. Dev. of Difference in Log Prices", axis(2)) xtitle("Year") title("Price Dispersion")
+
+graph export "../figures/tsdispersion.pdf", as(pdf) replace
+
+use "../data/estimationdata", clear
+
+	bys comm1 comm2: egen max_hasrail = max(hasrail)
+	keep if max_hasrail==1
+
+	collapse (mean) abslogdiff sdlogdiff, by (year)
+	la var abslogdiff "Mean Absolute Difference"
+	la var sdlogdiff "Std. Dev. of Difference"
+	sort year
+
+	graph twoway line abslogdiff year, scheme(s1mono) yaxis(1) ylabel(0(0.005)0.03) yscale(range(0 0.03) axis(1)) lcolor(black) ///
+		ytitle("Mean Absolute Difference in Log Prices") graphregion(color(white)) bgcolor(white) ///
+	|| line sdlogdiff year, yaxis(2) yscale(range(0 0.015) axis(2)) ylabel(0(0.003)0.015, axis(2)) lpattern(dash) lcolor(black) ///
+		ytitle("Std. Dev. of Difference in Log Prices", axis(2)) xtitle("Year") title("Price Dispersion")
+
+graph export "../figures/tsdispersion_onlyrail.pdf", as(pdf) replace
+
+/*
+* || lfit abslogdiff year || lfit sdlogdiff year, yaxis(2) ///	
