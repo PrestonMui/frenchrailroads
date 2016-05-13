@@ -1,15 +1,36 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Clapham(1961)]{clapham}
+J.~H. Clapham.
+\newblock \emph{Economic Development of France and Germany, 1815-1914.}
+\newblock Cambridge University Press, Cambridge, 1961.
+
+\bibitem[Doukas(1945)]{doukas}
+Kimon~A. Doukas.
+\newblock \emph{The French Railroads and the State}.
+\newblock Columbia University Press, New York, 1945.
+
+\bibitem[Dunham(1941)]{dunham}
+Arthur~L. Dunham.
+\newblock How the first french railways were planned.
+\newblock \emph{The Journal of Economic History}, 1:\penalty0 12--25, 1941.
+
 \bibitem[{Google Developers}(2016)]{google}
 {Google Developers}.
 \newblock The google maps geocoding api, 2016.
 \newblock URL
   \url{https://developers.google.com/maps/documentation/geocoding/}.
+
+\bibitem[Greenway et~al.(1977)Greenway, Watson, and Davis]{hectoliter}
+W.T. Greenway, C.A. Watson, and G.~Davis.
+\newblock Factors for converting bushel weight to hectoliter weight for six
+  cereal grains, flax, and soybeans.
+\newblock \emph{Cereal Chemistry}, 54:\penalty0 373 -- 378, 1977.
 
 \bibitem[Johansen and Juselius(1990)]{johansen}
 Soren Johansen and Katarina Juselius.
@@ -33,9 +54,31 @@ Soren Johansen and Katarina Juselius.
 \newblock \emph{Le Rail en France: Le Second Empire, Tome 3, 1864-1870}.
 \newblock Imprimerie STEDI, Paris, France, 2004.
 
+\bibitem[Persson(1999)]{persson}
+Kar Persson.
+\newblock \emph{Grain Markets in Europe, 1500--1900}.
+\newblock Cambridge University Press, Cambridge, 1999.
+
+\bibitem[Price(1981)]{price}
+Roger Price.
+\newblock \emph{An Economic History of Modern France}.
+\newblock Macmillan, London, 1981.
+
 \bibitem[Roehner(2016)]{prices}
 Bertrand Roehner.
 \newblock Wheat trade and wheat prices in france, 1486-1913, 2016.
 \newblock URL \url{http://doi.org/10.3886/ICPSR09777.v1}.
+
+\bibitem[Th\'{e}venin et~al.(2013)Th\'{e}venin, Schwartz, and Sapeta]{thevenin}
+Thomas Th\'{e}venin, Robert Schwartz, and Loïc Sapeta.
+\newblock Mapping the distortions in time and space: The french railway network
+  1830–1930.
+\newblock \emph{Historical Methods}, 46\penalty0 (3):\penalty0 134--143, 2013.
+
+\bibitem[Ville(1999)]{ville}
+Simon~P. Ville.
+\newblock \emph{Transport and the Development of the European Economy,
+  1750--1918}.
+\newblock St. Martin's Press, New York, 1999.
 
 \end{thebibliography}
