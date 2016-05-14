@@ -12,10 +12,11 @@ append using "../data/FRA_adm/FRA_adm0b"
 replace comm = proper(comm)
 gen position = 3
 	replace position = 1 if inlist(comm,"Lyon","Oontlabbe","Lille","Vitre")
-	replace position = 2 if inlist(comm,"Montauban","Chalonssurmarne")
-	replace position = 4 if inlist(comm,"Soissons","Evreux","Bayeux")
-	replace position = 6 if inlist(comm,"Saintlo","Laval","Arras","Albertville","Clermont")
-	replace position = 8 if comm=="Blois"
+	replace position = 2 if inlist(comm,"Soissons","Montauban","Chalonssurmarne","Pontlabbe")
+	replace position = 4 if inlist(comm,"Evreux","Bayeux","Douai")
+	replace position = 5 if inlist(comm,"Clermont","Saintbrieuc")
+	replace position = 6 if inlist(comm,"Saintlo","Laval","Arras","Albertville")
+	replace position = 8 if inlist(comm,"Blois","Carcassonne")
 	replace position = 12 if inlist(comm,"Bernay")
 
 tw (area _Y _X, cmissing(n) fcolor(white) nodropbase) ///
@@ -55,10 +56,11 @@ insheet using "../data/railopenings.csv", comma clear
 	la var dist "KM of Lines"
 	la var num_lines "Number of Lines"
 	
-	graph twoway line num_lines year, yaxis(1) yscale(range(0) axis(1)) lcolor(black) ///
+	graph twoway line num_lines year, xaxis(1 2) yaxis(1) yscale(range(0) axis(1)) xline(1842 1852 1859) lcolor(black) ///
+		xla(1842 "Legrand Plan, 1842"  1852 "2nd French Empire, 1852" 1859 "Nat'l Guarantee, 1859", axis(1) labsize(small) alternate) ///
 		ytitle("Lines Opened") graphregion(color(white)) bgcolor(white) ///
 	|| line dist year, yaxis(2) yscale(range(0) axis(2)) lpattern(dash) lcolor(black) ///
-		ytitle("KM of Lines Opened", axis(2)) xtitle("Year") title("Rail Lines Opened, by Year")
+		ytitle("KM of Lines Opened", axis(2)) xtitle("Year", axis(2)) xtitle("", axis(1)) title("Rail Lines Opened, by Year")
 	
 graph export "../figures/lines_ts.pdf", as(pdf) replace
 
@@ -99,8 +101,8 @@ use "../data/fixed_effects", clear
 	* Compare to "Average" effect
 	gen absavgtreat = -0.0014266
 	gen sdavgtreat = -0.0006081
-	la var absavgtreat "Implied Effect on Avg. Commune Pair (Level)"
-	la var sdavgtreat "Implied Effect on Avg. Commune Pair (Volatility)"
+	la var absavgtreat "Implied Differential Effect"
+	la var sdavgtreat "Implied Volatility Effect"
 	
 	graph twoway line abslogdiff_fe11 year, lcolor(black) ///
 		|| line absavgtreat year, lcolor(gs10) ///

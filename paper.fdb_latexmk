@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex paper"] 1463108659 "paper.aux" "paper.bbl" "paper" 1463111302
+["bibtex paper"] 1463127875 "paper.aux" "paper.bbl" "paper" 1463128120
   "/usr/share/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1447534188 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "paper.aux" 1463109163 3622 1e3b0db85f1caa22caf9fe549f5b9ae9 ""
+  "paper.aux" 1463128031 3661 91b21d5c7bf4f19da0076fa71e949242 ""
   "paper.bcf" 0 -1 0 ""
-  "paper.bib" 1463108574 3654 468b8175ba869f6aa643c40a899ce886 ""
+  "paper.bib" 1463127869 4057 cee4d1df73441d383933a7676f902dd8 ""
   (generated)
-  "paper.bbl"
   "paper.blg"
-["pdflatex"] 1463109162 "paper.tex" "paper.pdf" "paper" 1463111302
+  "paper.bbl"
+["pdflatex"] 1463128030 "paper.tex" "paper.pdf" "paper" 1463128120
   "./figures/communes_map.pdf" 1463084241 325687 7d86889a9821e20474803e133b714103 ""
   "./figures/fixed_effects.pdf" 1463084246 4882 9c44723c8f3e6b0b1ba44412dd1bf48b ""
   "./figures/lines_ts.pdf" 1463084242 4841 bf817fd096f04ed8f9ae72c7e3976cdd ""
@@ -21,7 +21,6 @@
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1447534194 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1447534192 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1447534190 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
-  "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1447534190 3584 13049b61b922a28b158a38aeff75ee9b ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm" 1447534190 3584 ad49a18d8515beef6d92d4d3f197d0fd ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm" 1447534190 3584 cf973739aac7ab6247f9150296af7954 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm" 1447534190 3584 49064b465390a8e316a3c8417a050403 ""
@@ -61,7 +60,6 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1447534193 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1447534193 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb" 1447534193 154600 ea54091d31de803b613ba9e80ca51709 ""
-  "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb" 1447534193 135942 859a90cad7494a1e79c94baf546d7de5 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb" 1447534193 139826 9213617a7cb78635fc326b859c0b2273 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb" 1447534193 154599 ded6d7c21788a8930eadc7fef7518942 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1447534193 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
@@ -140,13 +138,13 @@
   "figures/railmap1870.pdf" 1463084246 342292 14d1a2e76bb6aa94ef7a1802d08536d8 ""
   "figures/sdlogdiffreg.tex" 1463106231 1683 0d8f87f7a150246dee91b3f03cbd682d ""
   "figures/tsdispersion.pdf" 1463084247 4624 880c89bbef59f9439e73d396deca4873 ""
-  "paper.aux" 1463109163 3622 1e3b0db85f1caa22caf9fe549f5b9ae9 ""
-  "paper.bbl" 1463108659 3087 1b6e8cf670c715f11e0a1a21547b7503 "bibtex paper"
-  "paper.tex" 1463111301 24772 742943849733561196d323775a9cbd89 ""
+  "paper.aux" 1463128031 3661 91b21d5c7bf4f19da0076fa71e949242 ""
+  "paper.bbl" 1463127875 3448 e02d73f51b7c1200058ef8796ae08e67 "bibtex paper"
+  "paper.tex" 1463128120 29121 b6e304755713878fa060f0dad72588e9 ""
   "problemset.sty" 1454142833 697 58402e06af2fd5b9f1e1e1cf3aa7c6f1 ""
   (generated)
-  "figures/sdlogdiffreg.aux"
   "paper.aux"
   "figures/abslogdiffreg.aux"
+  "figures/sdlogdiffreg.aux"
   "paper.log"
   "paper.pdf"

@@ -1,51 +1,8 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Arch Linux)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: paper.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: paper.aux
 The style file: plainnat.bst
 Database file #1: paper.bib
 Warning--entry type for "google" isn't style-file defined
---line 49 of file paper.bib
+--line 33 of file paper.bib
 Warning--entry type for "prices" isn't style-file defined
---line 77 of file paper.bib
-You've used 14 entries,
-            2773 wiz_defined-function locations,
-            665 strings with 6399 characters,
-and the built_in function-call counts, 4822 in all, are:
-= -- 400
-> -- 191
-< -- 12
-+ -- 71
-- -- 57
-* -- 314
-:= -- 771
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 53
-chr.to.int$ -- 14
-cite$ -- 28
-duplicate$ -- 272
-empty$ -- 483
-format.name$ -- 73
-if$ -- 1013
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 20
-newline$ -- 78
-num.names$ -- 56
-pop$ -- 147
-preamble$ -- 1
-purify$ -- 47
-quote$ -- 0
-skip$ -- 184
-stack$ -- 0
-substring$ -- 118
-swap$ -- 14
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 114
-warning$ -- 0
-while$ -- 46
-width$ -- 0
-write$ -- 187
+--line 47 of file paper.bib
 (There were 2 warnings)

@@ -151,13 +151,13 @@ insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
 * Label variables
 	la var logdist "Log Dist. (km)"
 	la var hasrail "Rail Dummy"
-	la var hasrail_logdist "Rail Dummy x Log Dist. (km)"
-	la var hasrail_dist "Rail Dummy x Dist. (km)"
-	la var hasrail_dist2 "Rail Dummy x Dist. Squared (km)"
-	foreach d in 50 100 140 150 200 {
+	la var hasrail_logdist "Rail D. x Log Dist. (km)"
+	la var hasrail_dist "Rail D. x Dist. (km)"
+	la var hasrail_dist2 "Rail D. x Dist. Squared (km)"
+	foreach d in 50 100 150 200 {
 		la var logdistm`d' "Log (Dist. - Dmin)"
-		la var hasrail_logdistm`d' "Rail Dummy x Log (Dist. - Dmin)"
-		la var hasrail_dummy_logdistm`d' "Rail Dummy x (Dist > Dmin)"
+		la var hasrail_logdistm`d' "Rail D. x Log (Dist. - Dmin)"
+		la var hasrail_dummy_logdistm`d' "Rail D. x (Dist > Dmin)"
 	}
 
 

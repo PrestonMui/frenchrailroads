@@ -3,60 +3,73 @@
 \usepackage[round]{natbib}
 \usepackage{caption,subcaption,booktabs,dcolumn,threeparttable,lscape,rotating}
 \usepackage[T1]{fontenc}
-\runningheads{Preston Mui}{Did Railroads Integrate Markets? Evidence from France, 1825-1870}
+\setlength{\intextsep}{1.25cm}
+\runningheads{Preston Mui}{Did Railroads Integrate Markets?}
 
-\title{How much did Railroads Affect Market Integration? Evidence from France, 1825 - 1870}
+\title{How much did Railroads Affect Market Integration? Evidence from 19th Century French Grain Prices}
 \date{\today}
-\author{Preston Mui\footnote{I thank Sam Leone, Isabela Manelici, Patrick Russo, Brad Delong, and Barry Eichengreen for useful comments and discussion. The usual disclaimer applies. All mistakes are my responsibility.} \footnote{All data and code for this project is available at https://github.com/PrestonMui/frenchrailroads.}  \\ University of California, Berkeley}
+\author{Preston Mui\thanks{I thank Sam Leone, Christina Brown, Peter McCrory, Isabela Manelici, Patrick Russo, Brad Delong, and Barry Eichengreen for useful comments and discussion. The usual disclaimer applies. All mistakes are my responsibility.} \footnote{All data and code for this project is available at https://github.com/PrestonMui/frenchrailroads.}  \\ University of California, Berkeley}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-   Abstract text
+   Between 1825 and 1870, the French rail network grew from nothing to a sprawling network criss-crossing the country.
+   But, how important was this rail network?
+   I investigate the effects of rail connections on levels and the volatility of price differences between French cities during this period.
+   Using disaggregated grain price data from fifty-three French cities and information on the opening dates and location of rail routes, I find that the presence of a rail network is associated with a statistically significant, but economically small decrease in both of these measures of price dispersion.
+   These historical results are consistent with the modern trade literature finding that transportation costs are a small part of trade costs.
 \end{abstract}
 
 \newpage
 \section{Introduction}
 
-% Paragraph introduction
-As was the case in other countries, the 19th century saw a dramatic change in French railroad infrastructure.
-Prior to the introduction of trains, grain transportation in was expensive, risky, and slow.
-Shipping grain by water was not only long and expensive but risky as well, since river water or accidents could damage the grain.
+As was the case in other countries, the 19th century saw a dramatic change in French transportation infrastructure.
+Prior to the introduction of trains, grain transportation in France was expensive, risky, and slow.
+Shipping grain by waterways, for example, ran the risk of water damage or accidents.
 The first railroad was built in 1828, and the network gradually expanded throughout France during the 19th century.
 The travel time between Paris and Marseille fell from five days to half a day between 1814 and 1857 \citep{thevenin}.
 By 1861, rail transportation accounted for at least two-thirds of cereal consumption, not to mention the improved ability to transport perishables and meat from further away \citep{price}.
 
-% Previous literature
 Previous literature in economic history has addressed the impact of railroads during the Industrial Revolution.
 \cite{price} argues that railways had a profound impact in transforming the French economy, especially the agricultural sector, by reducing agricultural prices and widening markets.
 \cite{persson} uses monthly grain prices from London and thirteen French markets to demonstrate that price volatility and dispersion decreased dramatically between the 16th and 19th centuries, attributing this decline to falls in trade and information costs.
-However, Ville (1990) notes that the effects of railroads are overstated, since improvements in agricultural technology and road transport are likely to confound the identification of the effects of railroads.
+However, \cite{ville} notes that the effects of railroads are overstated, since there were also profound improvements in agricultural technology and road transport during this time period.
 This disagreement over the magnitude of the effect of railroads is not limited to the French context.
-For example, Donaldson (2015) argues that the traditional ``social savings'' methodology understates the value of expanded market access from railroads in 19th century America.
+For example, \cite{donaldson} argues that the traditional ``social savings'' methodology understates the value of expanded market access from railroads in 19th century America.
 
-% I Address price dispersion.
-% Why railroads would be important for this.
+In this paper, I address a particular question about the effect of railroads: how much did they matter for market integration, in particular price integration in geographically distinct markets?
+In theory, the law of one price predicts that price differentials should not differ by more than the cost of trade between two locations.
+If railroads lowered trade costs, one would predict lower price differentials as railroads are built.
+My works is therefore related to the vast literature on trade costs and the law of one price.
+Surveys of this literature are available in \cite{anderson} and \cite{head}.
+One key takeaway of this literature is that although the data suggests that trade costs loom large in determining trade flows, a significant part of the trade costs, such as administrative costs, taxes, and cultural barriers, are not related to transportation.
+One example of this in the economic history literature is \cite{jacks}, who find that variation in freight costs had a statistically insignificant impact on trade flows between the UK and other countries during the Industrial Revolution.
 
-% Relations to modern literature
+I examine in particular the price of grain at various French \emph{communes}, the equivalent of ``town'' or ``city,'' between 1825 and 1870.
+I construct measures of price dispersion over this time period and connect them to changes in the rail network.
+The key finding of my results is that the presence of a rail connection between \emph{communes} has a small, but statistically significant impact on price dispersion.
 
-\section{History of French rail in the 19th Century}
+The paper proceeds as follows. Section 2 briefly summarizes the history of the construction of the rail network during the sample period. Section 3 describes the data sources used. Section 4 describes the empirical strategy. Section 5 discusses results, and Section 6 concludes.
 
+\section{History of French Rail in the 19th Century}
+
+Before examining the data, it is useful to briefly consider the historical narrative of the construction of the French rail network.
 The history of the French rail network during the 19th century is unique among other Western economies during this time period due to the high level of central planning and control.
 Unlike England and the United States, where rail construction, routes, and planning was primarily driven by private investors, the French Government in effect planned and owned the rail routes while leasing the operation rights to private companies.
-However, the centralization rail planning did not mean that construction and planning was swift or efficient.
+However, the centralization of rail planning did not mean that construction and planning was swift or efficient.
 The history of the construction of the French rail network is rife with infighting between various interest groups, such as the \emph{corps des ponts et chauss\'{e}es} (the engineers in charge of planning), private railroad companies, and financiers.
 Indeed, by 1841, the United States and England had 5,000 and 4,000 kilometers of operational rail.
-France had less than 1,000 kilometers of rail, and did not reach 5,000 kilometers until the 1850s.
+France, on the other hand, had less than 1,000 kilometers of rail and did not reach 5,000 kilometers until the 1850s.
 
 The first railroad in France, a 23 kilometer line between Andr\'{e}zieux and St. Etienne, was approved in 1823 and opened in 1828.
 Lines between St. Etienne and Lyon, a major population center, and between Paris and St. Germain opened in 1832 and 1837, respectively.
-The opening of the Paris--St. Germain line attracted much attention from the national government, prompting the Director of the Bureau of Bridges and Roads, which held technical jurisdiction over rail planning, to call railroads ``the highways of power, of enlightenment, and of civilization'' \citep{doukas}.
+The opening of the Paris--St. Germain line attracted much attention from the national government, prompting the Director of the Bureau of Bridges and Roads to call railroads ``the highways of power, of enlightenment, and of civilization'' \citep{doukas}.
 However, it took time for this interest to translate into actual rail planning and support from the national government.
-A planned line from Paris to Rouen was abandoned by one company because the \emph{corps des ponts et chauss\'{e}es} had vastly underestimated the costs of construction.
-This, combined with battles between the \emph{corps} and financiers as well as high costs of raising capital, prevented expansion of the rail network \citep{dunham}.
-The Minister of Public works attempted to submit a plan for the rail network in 1837, but this attempt was stymied by fears of state control and support for \emph{laissez-faire} policies \citep{clapham}.
+A planned line from Paris to Rouen was abandoned by one company because the \emph{corps} had vastly underestimated the costs of construction.
+This poor planning, combined with battles between the \emph{corps} and financiers, as well as high costs of raising capital, prevented expansion of the rail network \citep{dunham}.
+The Minister of Public works attempted to submit a plan to the parliament for the rail network in 1837, but this attempt was stymied by fears of state control and support for \emph{laissez-faire} policies \citep{clapham}.
 
 In 1842, the parliament finally approved the Legrand Plan, named after the then-director of the \emph{corps}.
 The plan called for a public-private partnership between the government and private rail companies.
@@ -69,10 +82,11 @@ A financial panic, political upheavel, and economic depression between 1847 and 
 Upon the establishment of the Second French Empire in 1852, the national government consolidated rail companies with the intent of creating companies strong enough to take on the risks of running routes \citep{clapham}.
 In 1859, the national government granted guarantees and subsidies to private companies in exchange for a share in the profits, in an attempt to reestablish private interest in financing rail companies.
 Construction of the network accelerated, and the Legrand plan was finally completed in 1870.
+The legacy of the Legrand Plan is still reflected today in the basic outline of the modern French rail network.
 
 \section{Data}
 
-I use a dataset of grain prices at various French \emph{communes} (cities).
+I use a dataset of grain prices at various French \emph{communes}, or cities.
 From 1825 to 1914, local officials collected grain prices, measured in \emph{centimes} per hectoliter, at a biweekly frequency.
 These data were compiled by the national government now reside at the French National Archives.
 The price data from 53 \emph{communes} are publicly available from \cite{prices}.\footnote{Some \emph{communes} were eliminated by \cite{prices} due to imprecise or incomplete data.}
@@ -82,17 +96,17 @@ Figure~\ref{fig:communes_map} shows the location of the \emph{communes} comprisi
 
 \begin{figure}[ht]
 	\centering
-	\caption{Location of \emph{commune} in price data \citep{prices}.}
-	\includegraphics{figures/communes_map.pdf}
+	\caption{Location of \emph{communes} in price data \citep{prices}.}
+	\includegraphics[scale = 1.1]{figures/communes_map.pdf}
 	\label{fig:communes_map}
 \end{figure}
 
 One clear disadvantage to using this price data is that the analysis is limited wheat prices.
 However, wheat is a long-lived commodity, so wheat sold in Saint-Lo (which is in the Northwest by the English Channel) could, in principle, be sold as the same wheat in Marseille in the Southeast.
-In addiiton, this prices series is more disaggregated than the monthly data used in \cite{persson}, with four times as many markets and biweekly as opposed to monthly prices.
-% This allows me to...
+This helps circumvent problems when the prices of similar, but differentiated products.
+In addition, this prices series is more disaggregated than the monthly data used in \cite{persson}, with four times as many markets and biweekly as opposed to monthly prices.
 
-I obtain information on railroad openings from \cite{palau2,palau3,palau4}, who uses primary sources from the Musee Francais du Chemin de Fer (The French Train Museum), SNCF archives, and \emph{Annales de Mines}, a French technical mining journal from the 1800s.
+I obtain information on railroad openings from \cite{palau1,palau2,palau3,palau4}, who uses compiles information on rail openings from the Musee Francais du Chemin de Fer (The French Train Museum), the Soci\'{e}t\'{e} Nationale des Chemins de fer Francais (the French national railway company) archives, and \emph{Annales de Mines} (a French technical mining journal from the 1800s).
 These sources contain information on every railroad opening in France between 1828 and 1870, including the location of the two endpoints, the day the route was opened, and the distance of the route.
 Overall, there are 410 rail line openings in France between 1828 and 1870 in my dataset (after dropping lines to Luxembourg and Germany and a few short lines for which I could not find geographic information).
 Figure~\ref{fig:lines_year} shows the number and total distances of railroad lines opened in each year during the sample.
@@ -105,16 +119,17 @@ To get geographical distance information, I feed both the \emph{communes} from t
 	\label{fig:lines_year}
 \end{figure}
 
-From 1828 to 1870, there were a total of 410 routes opened, with a total cumulative distance of 15,445 kilometers\footnote{Distances are as-the-crow flies, not actual distances accounting for curves.}.
-The average route was 30 kilometers long, with the largest being the 203 kilometer Paris-Lille line, which opened in June 1846.
-The history of French railroads as described above is apparent in this graph, as construction accelerates after 1842, the year the Legrand Plan was passed, and in 1852, when the Second French Empire took measures to encourage construction.
+From 1828 to 1870, there were a total of 410 routes opened, with a total cumulative distance of 15,445 kilometers.\footnote{Distances are as-the-crow flies, not actual distances accounting for curves.}
+The average route was 30 kilometers long, with the largest being the 203 kilometer Paris--Lille line, which opened in June 1846.
+The history of French railroads as described above is apparent in this graph.
+Construction accelerates after 1842, the year the Legrand Plan was passed, and after 1852, when the Second French Empire took measures to encourage construction.
 The legacy of the Legrand Plan can also be seen in figure~\ref{fig:rail_openings}, which maps the evolution of rails across the country.
 Each map shows the railroads opened by the end of the year listed.
-The bias towards rail during the early years is clearly evident, and the main ``trunks'' of the network were completed before the smaller secondary ``branches.''
+The bias towards Paris during the early years is clearly evident, and the main ``trunks'' of the network were completed before the smaller secondary ``branches.''
 
 % Figure with rail openings
 \begin{figure}[p]
-	\centering
+	\centering \caption{Railroads open at year-end. Endpoints of lines are stations, but the actual lines are simply as-the-crow-flies lines between stations, not actual rail routes. Maps were constructed using data from \cite{palau1,palau2,palau3,palau4}.}
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
 		\caption{1845. 27 routes, 1,104 km.}
@@ -145,37 +160,36 @@ The bias towards rail during the early years is clearly evident, and the main ``
 		\caption{1870. 410 routes, 15,445 km.}
 		\includegraphics[scale=.5]{figures/railmap1870.pdf}
 	\end{subfigure}
-	\caption{Railroads open at year-end. Endpoints of lines are stations, but the actual lines are simply as-the-crow-flies lines between stations, not actual rail routes.}
 	\label{fig:rail_openings}
 \end{figure}
 
 Some matching betweeen the rail openings data and the grain data is required, as our interest is of rail connections between price locations, not rail stations.
 To this end, at any particular point in time during the sample period, I consider two rail stations to be connected if they are connected in a graph with rail stations as vertices and railroads as edges.
-Then, I consider two \emph{communes} to be ``connected'' by railroads at a particular point in time if any rail station within 40 kilometers of the first \emph{commune} is connected to any rail station within 25 kilometers of the second \emph{commune}.
+Then, I consider two \emph{communes} to be ``connected'' by railroads at a particular point in time if any rail station within 40 kilometers of the first \emph{commune} is connected to any rail station within 40 kilometers of the second \emph{commune}.
 I assume that connections are symmetric in the sense that connections are unaffected by the direction of travel; that is, the statement ``Soissons is connected to Albi'' is equivalent to ``Albi is connected to Soissons.''
 By 1870, 41 out of 53 \emph{communes} in the grain price data are associated with some rail station by this metric.\footnote{The \emph{commune} that are not associated with a rail station are Albi, Annecy, Arras, Bayeux, Blois, Carcassonne, Dieppe, Digne, Macon, Peyrehorade, Pontlabbe, Vannes}
-I use 1825 to 1870 as my sample period, since 1870 is the earliest availability of the grain price data, and 1870 is the last year for which I have information on rail openings.
+I use 1825 to 1870 as my sample period, since 1825 is the earliest availability of the grain price data, and 1870 is the last year for which I have information on rail openings.
 	
-\section{Empirics}
+\section{Empirical Strategy}
 
-\subsection{Strategy}
-
-Ideally, one would like to would like to estimate something similar to a vector error-correction model (VECM), as in \cite{johansen}.
+Ideally, one would like to would like to estimate something similar to a vector error-correction model (VECM), as proposed by \cite{johansen}.
+This is a method commonly used to test for price integration and deviations from the law of one price (for example, \cite{goldberg} uses VECMs to test for price integration in the automobile market in the EU).
 This model would estimate equilibrium multilateral relationships between price series in multiple cities and the the speed at which the time series converge to this equilibrium.
-However, using this approach is somewhat unworkable with fifty-three price series, because the number of observations (across time) required to estimate this model would make it difficult to link changes in the relationship between price series to the introduction of railroads.
+However, using this approach is somewhat unworkable with fifty-three price series, because the number of time periods required to estimate this model would make it difficult to link changes in the relationship between price series to the introduction of railroads.
 Furthermore, the complexity of this model would make it difficult to interpret the estimated coefficients of this model.
 
 Instead, I take the simpler approach of examining the effect of rail connections on both the magnitude and volatility of price differentials between \emph{communes}.
+This approach is similar to that of \cite{engelrogers}, who investigate the impact of national borders on price dispersion between cities.
 To examine the magnitude of price differentials, I construct $P_{i,j,t}$ as the mean of the absolute value of differences in logged prices in \emph{communes} $i$ and $j$ in year $t$.
-I measure the volatility of the price differential, $V_{i,j,t}$, as the standard deviation of differences in logged prices.
+I measure the volatility of the price differential, $V_{i,j,t}$, as the standard deviation of differences in logged prices between the two \emph{communes} in that year.
 Although this is less precise than estimating the dynamic relationship between price series in a VECM, linking changes in these variables to rail connections is much easier.
 I plot the annual averages, across all \emph{commune} pairs, of $P_{i,j,t}$ and $V_{i,j,t}$ in Figure~\ref{fig:tsdifferentials}.
 Price dispersion, as measured by absolute price differentials, fell over the sample period from 2.5\% to 1\%.
 The volatility of price differentials appears to have fallen over time as well (I estimate a coefficient of -0.0006 on year on a best-fit line, significant at the 1\% level), but the pattern is much less pronounced than the fall in absolute differentials.
 
 \begin{figure}[ht]
-	\caption{Price Dispersion over Time}
-	\includegraphics{figures/tsdispersion.pdf}
+	\centering \caption{Price Dispersion over Time}
+	\includegraphics[scale = 1.1]{figures/tsdispersion.pdf}
 	\label{fig:tsdifferentials}
 \end{figure}
 
@@ -183,34 +197,45 @@ I begin by estimating the following regression:
 \begin{align}
 	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + \beta_R R_{i,j,t} + \beta_{Rd} (R_{i,j,t} \times d_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \sum_{s=1}^{T} \eta_s Y_s + \epsilon_{i,j,t} \label{eq:reg1}
 \end{align}
-where $d_{i,j}$ is the log distance between \emph{commune} $i$, $j$; $R_{i,j,t}$ is a dummy equal to one if $i$ and $j$ are connected by railroads, as defined above.
+where $d_{i,j}$ is the log distance between \emph{commune}s $i$ and $j$; $R_{i,j,t}$ is a dummy equal to one if $i$ and $j$ are connected by railroads, as defined in the previous section.
 $C_k$ is a dummy equal to 1 if \emph{commune} $k$ is one of the \emph{communes} in the pairwise observation (so each \emph{commune} pair has two instances of $C_k$ equal to one), and the $Y_s$ terms are year fixed-effects.
-% Why the fixed effects
 This regression takes the form of a difference-in-difference regression, with the existence of a rail connection as the treatment, and the with the effect of a rail connection varying by distance between the \emph{communes}.
 
-\subsection{Results}
+One clear threat to the identification strategy above is the potential reverse causality of rail connections.
+In particular, it is reasonable to be concerned that rail routes were planned specifically in response to predicted changes in market integration in the absence of rail construction.
+It is not clear, a priori, in what way this would bias my results.
+If railroads were specifically planned for routes between \emph{communes} that were predicted to be well-integrated, even without the presence of a railroad, the estimated effect of a rail connection will be biased upwards.
+However, if railroads were planned with the goal of better-integrating \emph{communes}, the estimated effect of a rail connection would be biased downwards and possibly even negative.
+
+The historical record of railroad planning suggests that the railroad planners, in particular the \emph{corps des ponts et chauss\'{e}es}, did not have economic concerns in mind when planning rail routes.
+As \cite{dunham} writes,
+
+\begin{quote}
+	[The \emph{corps}] was not interested in trade or industry, nor in the problems of economics; it was interested in engineering, and it had no body of sound statistics that might have helped to broaden its point of view, inasmuch as the Government itself did not have really good statistics under the July monarchy (pg. 18).
+\end{quote}
+
+The \emph{corps}, Dunham explains, was concerned with sound engineering above all else, to the point of insisting on planning railroads ``as straight as possible'' even if it meant failing to connect important industrial or trade centers.
+The basic skeleton of the rail network, which began with railroads radiating out from Paris, reflects the desire of the \emph{corps} for Paris-centric control of the network over a decentralized system.
+Another argument for the exogeneity of the rail network construction is that the history of French rail planning, as described above, was rife with delays and cancellations caused by swings in public opinion, financial panics, and political turmoil.
+Even if the \emph{corps} tried to plan railroads according to some prediction of future changes in market integration---which seems unlikely given their disposition and lack of good economic statistics---they could not plan for those events which caused seemingly exogenous perturbations in the timing and location of actual rail routes.
+
+\section{Results}
 
 I present results from \eqref{eq:reg1} in Column 1 of Table~\ref{tab:reg1}.
 As expected, the coefficient on log distance is positive and significant, indicating that price dispersion increased with distance.
 What is less expected is the significant positive coefficient on the rail dummy, which suggests that railroad connections \emph{increased} the degree of price dispersion between cities.
 However, the significant and negative coefficient on the interaction of the rail dummy and log distance suggests that the presence of railroads attenuated the effects of distance on price dispersion.
-Because the distance between \emph{commune} is generally fairly large, the combination of the rail dummy and its interaction with log distance implies that railroads lowered price dispersion for \emph{commune} pairs that were at least 140 kilometers apart, which accounts for over 85\% of the \emph{commune} pairs for which there was a rail connection at the end of the sample.
+Because the distance between \emph{communes} is generally fairly large, the combination of the rail dummy and its interaction with log distance implies that railroads lowered price dispersion for \emph{commune} pairs that were at least 140 kilometers apart, which accounts for over 85\% of the \emph{commune} pairs for which there was a rail connection at the end of the sample.
 
-One possible explanation of this result is that rail might not significantly reduce trade costs between \emph{commune} that are very close to each other, and have no effect on price dispersion.
-With this in mind, I estimate the following specification:
+One possible explanation of this result is that rail might not significantly reduce trade costs between \emph{communes} that are very close to each other, and therefore have no effect on price dispersion.
+With this in mind, I estimate also the following specification:
 \begin{align}
 	P_{i,j,t} &= \beta_0 + \beta_d d_{i,j} + \beta_{\tilde{R}} \tilde{R}_{i,j,t} + \beta_{\tilde{R}\tilde{d}} (\tilde{R}_{i,j,t} \times \tilde{d}_{i,j}) + \sum_{k=1}^{N} \gamma_k C_k + \sum_{s=1}^{T} \eta_s Y_s + \epsilon_{i,j,t} \label{eq:reg2}
 \end{align}
-where $\tilde{d_{i,j}} = \max\{ \log( d_{i,j} ) - \log( d_{min} ), 0 \}$ for some minimum distance $d_{min}$.
+where $\tilde{d_{i,j}} = \max\{ \log( d_{i,j} ) - \log( d_{min} ), 0 \}$ and $\tilde{R}_{i,j,t} = R_{i,j,t} \times 1 \{ d_{i,j} > d_{min} \}$ for some minimum distance $d_{min}$.
 This specification constrains the effect of rail connections on price dispersion to be zero when the \emph{communes} are closer than $d_{min}$ kilometers, attenuating the effects of distance thereafter.
 I present the estimates of \eqref{eq:reg2} using $d_{min} = 100, 150$, and $200$ kilometers in columns (2) - (4) in Table~\ref{tab:reg1}.
 
-I present results from estimating \eqref{eq:reg1} and \eqref{eq:reg2} with $V_{i,j,t}$ as the dependent variable are presented in Table~\ref{tab:reg2}.
-As with the results on absolute differential, the coefficients on the rail dummy interactions with the distance variables are significant and negative, suggesting that railroads attenuated the effects of distance on price dispersion.
-Again considering a hypothetical ``average'' commune pair separated by 345 kilometers, the total estimated effect of a railroad is to attenuate the total effect of distance on volatility by between 4.6\% and 5.6\%.
-For the most-distant \emph{commune} pair (Pont-l'Abbe and Digne), the attenuation is between 7.7\% and 8.7\%.
-
-% \begin{landscape}
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 \caption{Dependent Variable: Average Absolute Log Price Difference\label{tab:reg1}}
@@ -218,19 +243,8 @@ For the most-distant \emph{commune} pair (Pont-l'Abbe and Digne), the attenuatio
 	\toprule
 	\input{figures/abslogdiffreg}
 	\bottomrule
-	\multicolumn{5}{l}{\footnotesize All regressions use Year and Commune Fixed Effects}\\
+	\multicolumn{5}{l}{\footnotesize {\parbox[t]{14cm}{All regressions use Year and Commune Fixed Effects and Huber-Eicker-White standard errors. Constant term suppressed.}}}\\
 \end{tabular}
-\end{table}
-
-\begin{table}[htbp]\centering
-\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\caption{Dependent Variable: Std. Deviation of Absolute Log Price Difference\label{tab:reg2}}
-	\begin{tabular}{l*{4}{c}}
-	\toprule
-	\input{figures/sdlogdiffreg}
-	\bottomrule
-	\multicolumn{5}{l}{\footnotesize All regressions use Year and Commune Fixed Effects}\\
-	\end{tabular}
 \end{table}
 
 Although the results are statistically significant, are they economically significant?
@@ -239,7 +253,8 @@ I chose these values because 350 kilometers was approximately the mean distance 
 Then, using the estimated coefficients from the preceding regressions, I calculate an estimated ``treatment effect'' for these two hypothetical \emph{communes}, and present the values in Table~\ref{tab:treatment1}.
 
 \begin{table}[ht]
-	\caption{Implied rail effects on hypothetical \emph{communes}: price differentials} \label{tab:treatment1}
+	\centering \caption{Implied rail effects on hypothetical \emph{communes}: price differentials} \label{tab:treatment1}
+	\begin{centering}
 	\begin{tabular}{ |c|c|c|c|c| }
 		\hline & \multicolumn{2}{c|}{``Average'' \emph{Commune}} & \multicolumn{2}{c|}{``Maximal'' \emph{Commune}} \\ \hline
 		Specification & \shortstack{Change in \\ $P_{i,j,t}$} & \shortstack{Attenuation of \\ Distance Effect} & \shortstack{Change in \\ $P_{i,j,t}$} & \shortstack{Attenuation of \\ Distance Effect} \\ \hline
@@ -248,21 +263,39 @@ Then, using the estimated coefficients from the preceding regressions, I calcula
 		$d_{min} = 150$ & -.0015041 & 7.0\% & -.0035527 & 14.3\% \\
 		$d_{min} = 200$ & -.0016673 & 7.8\% & -.0032794 & 13.2\% \\ \hline
 	\end{tabular}
+	\end{centering}
 \end{table}
 
-This back-of-the-envelope suggests the effect, though statistically significant, is small.
-The implied estimated effect of a rail connection on the ``average'' \emph{commune} pair was to reduce the mean logged price difference by between 0.14\% and 0.016\%, depending on the specification used.
-To understand the economic significance of this reduction, I compare this effect to the implied effect of distance ($\beta_d * d_{i,j}$) on price dispersion to calculate the amount of price dispersion caused by distance that is ``attenuated'' by the rail connection.
-For this ``average'' commune, the effect is between 6.4\% and 7.8\%, depending on the specification used.
+This back-of-the-envelope suggests that the effect of a rail connection is small.
+The implied estimated effect of a rail connection on the ``average'' \emph{commune} pair was to reduce the mean logged price difference by between 0.14\% and 0.16\%, depending on the specification used.
+To understand the economic significance of this reduction, I compare this effect to the implied effect of distance ($\beta_d \times d_{i,j}$) on price dispersion to calculate the amount of price dispersion caused by distance that is ``attenuated'' by the rail connection.
+For this ``average'' commune, a rail connection attenuates between 6.4\% and 7.8\% of the price dispersion caused by distance, depending on the specification used.
 Even for the two rail-connected \emph{communes} furthest apart (Pont-l'Abbe, in the Northwest, and Digne, in the Southeast, were 900 kilometers apart), the estimated attenuation effect was less than 15\% across all specifications.
 
 The results for price differential volatility are similar.
+I present results from estimating \eqref{eq:reg1} and \eqref{eq:reg2} with $V_{i,j,t}$ as the dependent variable are presented in Table~\ref{tab:reg2}.
+As with the results on absolute differential, the coefficients on the rail dummy interactions with the distance variables are significant and negative, suggesting that railroads attenuated the effects of distance on the volatility of price differences.
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Dependent Variable: Std. Deviation of Absolute Log Price Difference\label{tab:reg2}}
+	\begin{tabular}{l*{4}{c}}
+	\toprule
+	\input{figures/sdlogdiffreg}
+	\bottomrule
+	\multicolumn{5}{l}{\footnotesize {\parbox[t]{14cm}{All regressions use Year and Commune Fixed Effects and Huber-Eicker-White standard errors. Constant term suppressed.}}}\\
+	\end{tabular}
+\end{table}
+
+Again considering a hypothetical ``average'' commune pair separated by 345 kilometers, the total estimated effect of a railroad is to attenuate the total effect of distance on volatility by between 4.6\% and 5.6\%.
+For the most-distant \emph{commune} pair (Pont-l'Abbe and Digne), the attenuation is between 7.7\% and 8.7\%.
 I calculate the implied effects of rail connections on the same hypothetical \emph{commune} pairs and present the results in Table~\ref{tab:treatment2}.
 As with the results on absolute levels of price dispersion, the presence of a rail connection between the hypothetical \emph{communes} only attenuates a small fraction of the distance effect on price difference volatility.
 This result holds across the different specifications for both the ``average'' and ``maximal'' hypothetical \emph{commune}.
 
 \begin{table}[ht]
 	\centering \caption{Implied rail effects on hypothetical \emph{communes}: price differential volatility} \label{tab:treatment2}
+	\begin{centering}
 	\begin{tabular}{ |c|c|c|c|c| }
 		\hline & \multicolumn{2}{c|}{``Average'' \emph{Commune}} & \multicolumn{2}{c|}{``Maximal'' \emph{Commune}} \\ \hline
 		Specification & \shortstack{Change in \\ $P_{i,j,t}$} & \shortstack{Attenuation of \\ Distance Effect} & \shortstack{Change in \\ $P_{i,j,t}$} & \shortstack{Attenuation of \\ Distance Effect} \\ \hline
@@ -271,27 +304,44 @@ This result holds across the different specifications for both the ``average'' a
 		$d_{min} = 150$ & -.0006983 & 5.7\% & -.0011596 & 8.1\% \\
 		$d_{min} = 200$ & -.0006931 & 5.6\% & -.0011092 & 7.7\% \\ \hline
 	\end{tabular}
+	\end{centering}
 \end{table}
 
 Another way to assess the importance of rails on price dispersion during this period is to compare the magnitude of the effects of rail connections to overall falls in price dispersion during the sample period.
-In Figure~\ref{fig:fixed_effects}, I plot the year fixed-effects from the baseline regression in \eqref{eq:reg1}, normalized to the 1825 fixed effect equal to 0.\footnote{The year fixed-effects are virtually identical across specifications}
-As is apparent, the magnitude of the rail connection effect is dwarfed by the change in year fixed-effects over the sample period.
-One interpretation of this comparison is that while rail connections may have decreased price dispersion across distant \emph{communes}, transportation and market changes over time that affected all \emph{communes}, regardless of rail connections, were much more important.
+In Figure~\ref{fig:fixed_effects}, I plot the year fixed effects from the baseline regression in \eqref{eq:reg1}, normalized to the 1825 fixed effect equal to 0.\footnote{The year fixed-effects are virtually identical across specifications.}
 
 \begin{figure}[ht]
 	\centering
-	\caption{Year fixed-effects, normalized to $\gamma_{1825} = 0$}
+	\caption{Year Fixed Effects, Normalized to $\gamma_{1825} = 0$}
 	\includegraphics{figures/fixed_effects.pdf}
 	\label{fig:fixed_effects}
 \end{figure}
 
-\subsection{Discussion}
-These results suggest that railroads did not have a large impact on price dispersion in France.
-This is surprising, given the apparent savings in transportation costs from railroads: The cost of freight fell from around 25 centimes per ton kilomiter to six centimes during the sample period \cite{ville}.
-Using a measure of 81.3 kilograms of wheat per hectoliter (from \cite{hectoliter}), the cost of sending grain between our two hypothetical average \emph{communes} by train fell from nearly half to a tenth of the total value of the grain itself.
+The grey horizontal lines in this figure are the implied impacts of a rail connection between our hypothetical ``average'' \emph{commune} pair.
+It is apparent that the magnitude of the rail connection effect is dwarfed by the change in year fixed effects over the sample period.
+While rail connections may have decreased price dispersion across distant \emph{communes}, transportation and market changes over time that affected all \emph{communes}, regardless of rail connections, were much more important.
 
 
 \section{Conclusion}
+
+I show that the presence of a rail connection between French \emph{communes} decreased both the level and volatility of price differences.
+This effect is statistically significant, but ultimately small relative to both the relative effect of distance and the total decrease in price dispersion during the sample period.
+These results suggest that railroads did not have a economically large impact on price dispersion in France.
+This is surprising, given the apparent savings in transportation costs from railroads: The transportation cost of freight fell from around 25 centimes per ton kilometer to six centimes during the sample period \citep{ville}.
+Using a measure of 81.3 kilograms of wheat per hectoliter (from \cite{hectoliter}) and the average grain prices from the grain price data in 1825 and 1870, the cost of sending grain between our two hypothetical average \emph{communes} by train fell from nearly half to a tenth of the total value of the grain itself.
+
+Explaining this apparent contradiction is beyond the scope of this paper, but I present a few here for consideration for future research.
+One possible story is that were concurrent developments in alternative transportation technologies, such as roads and canals, that lowered transportation costs even in the absence of rail.
+During the sample period, there was a vast improvement in the road network.
+For example, transportation costs via road from La Havre to Paris fell from 135 to 55 francs per tonne between 1828 and 1837 alone \citep{price}.
+In particular, laws in 1821 and 1836 called for the extension of secondary roads, especially to small \emph{communes} \citep{caron}.
+Progress on these local roads mainly began in the 1850s, precisely the time that substantial progress in rail transport began \citep{price}.
+Since the pattern of rail construction connected major routes first, followed by secondary routes, this could explain why rail-connected routes did not appear to lower price dispersion much, since \emph{communes} not connected via railroads could have been connected by an improved road system.
+
+Another possible story comes from the trade literature's finding that trade costs comprise much more than transportation costs, including administrative costs, distribution costs, and insurance.
+During this time period, for example, the stock of money more than doubled, which may have lowered transaction costs everywhere \citep{caron}.
+Another important consideration is the development of the telegraph system during this time period, which has been shown to reduce both the level and variance of price dispersion between geographically distant trading centers \citep{steinwender}.
+Future research using data on the expansion on the road network, actual transportation costs, and the expansion of the telegraph network could yield interesting results.
 
 \newpage
 

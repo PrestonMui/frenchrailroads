@@ -30,7 +30,7 @@ use "../data/estimationdata", clear
 		restore
 	}
 
-* Affect on "average" and "maximal" communes
+* Effect on "average" and "maximal" communes
 local avg = 345
 local max = 900
 
@@ -55,3 +55,10 @@ use "../data/coefficients", clear
 		list *effect*
 		restore	
 	}
+
+* Average wheat prices
+insheet using "../data/ICPSR_09777_prices_clean.csv", comma clear
+	sum price if year==1825
+	disp 25 * 0.08961791 * 345 / `r(mean)'
+	sum price if year==1870
+	disp 6 * 0.08961791 * 345 / `r(mean)'
